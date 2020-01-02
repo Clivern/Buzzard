@@ -16,7 +16,6 @@ fn abs(x: f64) -> f64 {
     }
 }
 
-
 fn by_ref(x: &f64) -> f64{
     *x + 1.0
 }
@@ -32,6 +31,10 @@ fn arr_sum(values: &[i32]) -> i32 {
         res += values[i]
     }
     res
+}
+
+fn dump(arr: &[i32]) {
+    println!("arr is {:?}", arr);
 }
 
 fn main() {
@@ -136,6 +139,98 @@ fn main() {
 
     println!("first {:?}", first);
     println!("last {:?}", last);
+
+    // Option
+    let msg: Option<&str> = Some("howdy");
+    let msg_num: Option<u32> = Some(2);
+    println!("{}", msg.is_none()); // false
+    println!("{}", msg_num.is_none()); // false
+
+    // Vector: These are re-sizeable arrays
+    let mut v = Vec::new();
+    v.push(10);
+    v.push(20);
+    v.push(30);
+
+    let v_first = v[0];  // will panic if out-of-range
+    let v_maybe_first = v.get(0);
+
+    println!("v is {:?}", v);
+    println!("first is {}", v_first);
+    println!("maybe_first is {:?}", v_maybe_first);
+    dump(&v);
+
+    let slice = &v[1..];
+    println!("slice is {:?}", slice);
+
+
+    // iterators
+    let it_arr = [10, 20, 30];
+    for i in it_arr.iter() {
+        println!("{}", i);
+    }
+
+    let it_arr02 = 0..5;
+    for i in it_arr02 {
+        println!("{}", i);
+    }
+
+    let sum01: i32  = (0..5).sum();
+    println!("sum was {}", sum01);
+
+    let sum02: i64 = [10, 20, 30].iter().sum();
+    println!("sum was {}", sum02);
+
+
+    let mut v1 = vec![10, 20, 30, 40];
+    v1.pop();
+
+    let mut v2 = Vec::new();
+    v2.push(10);
+    v2.push(20);
+    v2.push(30);
+    v2.extend(0..2);
+
+    println!("{:?}", v1); // [10, 20, 30]
+    println!("{:?}", v2); // [10, 20, 30, 0, 1]
+
+    let mut v3 = vec![1, 10, 5, 1, 2, 11, 2, 40];
+    v3.sort();
+    println!("{:?}", v3); // [1, 1, 2, 2, 5, 10, 11, 40]
+
+    // Matching
+    let n = 1;
+    let text = match n {
+        0 => "zero",
+        1 => "one",
+        2 => "two",
+        _ => "many",
+    };
+    println!("{:?}", text); // one
+
+    let size = match n {
+        0..=3 => "small",
+        4..=6 => "medium",
+        _ => "large",
+    };
+    println!("{:?}", size); // small
+
+    let mut stext01 = String::new();
+    stext01.push('H');
+
+    let stext02 = " He llo ";
+
+    println!("{:?}", stext01); // H
+    println!("{:?}", stext02); //  He llo
+
+    let stripped: String = stext02.chars()
+        .filter(|ch| !ch.is_whitespace()).collect();
+
+    println!("{:?}", stripped); // Hello
+
+    for arg in std::env::args() {
+        println!("ARG -> '{}'", arg);
+    }
 }
 
 fn primitive_data_types(){
