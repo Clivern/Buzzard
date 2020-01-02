@@ -39,6 +39,7 @@ fn dump(arr: &[i32]) {
 
 fn main() {
     // https://stevedonovan.github.io/rust-gentle-intro/1-basics.html
+    // https://doc.rust-lang.org/std/index.html
     println!("----------------- Basics -----------------");
 
     primitive_data_types();
