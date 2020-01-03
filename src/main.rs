@@ -1,4 +1,3 @@
-
 fn sqrt(x: f64) -> f64 {
     return x * x;
 }
@@ -16,7 +15,7 @@ fn abs(x: f64) -> f64 {
     }
 }
 
-fn by_ref(x: &f64) -> f64{
+fn by_ref(x: &f64) -> f64 {
     *x + 1.0
 }
 
@@ -50,7 +49,7 @@ fn main() {
     println!("{}", x);
 
     let name = "Clivern";
-    println!("{name}", name=name);
+    println!("{name}", name = name);
 
     for i in 0..5 {
         println!("i = {}", i); // 0, 1, 2, 3, 4
@@ -65,7 +64,7 @@ fn main() {
     }
 
     for i in 0..5 {
-        println!("{} {}", if i % 2 == 0 {"Even:"} else {"Odd:"}, i);
+        println!("{} {}", if i % 2 == 0 { "Even:" } else { "Odd:" }, i);
     }
 
     // let variables by default can only be assigned a value when declared.
@@ -104,12 +103,11 @@ fn main() {
     println!("first {}", first);
 
     for i in 0..4 {
-        println!("[{}] = {}", i,arr[i]);
+        println!("[{}] = {}", i, arr[i]);
     }
 
     println!("length {}", arr.len());
     println!("sum ~> {}", arr_sum(&arr));
-
 
     let mut arr1 = [10, 20, 30, 40];
     arr1[0] = 11;
@@ -126,10 +124,9 @@ fn main() {
     println!("strings {:?}", strings);
     println!("ints_ints {:?}", ints_ints);
 
-
     let ints_arr = [1, 2, 3, 4, 5];
     let slice1 = &ints_arr[0..2];
-    let slice2 = &ints_arr[1..];  // open range!
+    let slice2 = &ints_arr[1..]; // open range!
     println!("ints_arr {:?}", ints_arr);
     println!("slice1 {:?}", slice1);
     println!("slice2 {:?}", slice2);
@@ -152,7 +149,7 @@ fn main() {
     v.push(20);
     v.push(30);
 
-    let v_first = v[0];  // will panic if out-of-range
+    let v_first = v[0]; // will panic if out-of-range
     let v_maybe_first = v.get(0);
 
     println!("v is {:?}", v);
@@ -162,7 +159,6 @@ fn main() {
 
     let slice = &v[1..];
     println!("slice is {:?}", slice);
-
 
     // iterators
     let it_arr = [10, 20, 30];
@@ -175,12 +171,11 @@ fn main() {
         println!("{}", i);
     }
 
-    let sum01: i32  = (0..5).sum();
+    let sum01: i32 = (0..5).sum();
     println!("sum was {}", sum01);
 
     let sum02: i64 = [10, 20, 30].iter().sum();
     println!("sum was {}", sum02);
-
 
     let mut v1 = vec![10, 20, 30, 40];
     v1.pop();
@@ -223,17 +218,20 @@ fn main() {
     println!("{:?}", stext01); // H
     println!("{:?}", stext02); //  He llo
 
-    let stripped: String = stext02.chars()
-        .filter(|ch| !ch.is_whitespace()).collect();
+    let stripped: String = stext02.chars().filter(|ch| !ch.is_whitespace()).collect();
 
     println!("{:?}", stripped); // Hello
 
     for arg in std::env::args() {
         println!("ARG -> '{}'", arg);
     }
+
+    let s1 = "hello dolly".to_string();
+    let _s2 = s1;
+    println!("s1 {}", _s2);
 }
 
-fn primitive_data_types(){
+fn primitive_data_types() {
     println!("
 Primitive Data Types:
 ---------------------
@@ -258,10 +256,12 @@ Primitive Data Types:
     ");
 }
 
-fn rust_docs(){
-    println!("
+fn rust_docs() {
+    println!(
+        "
 Rust docs in browser:
 --------------------
 $ rustup doc --std
-    ");
+    "
+    );
 }
