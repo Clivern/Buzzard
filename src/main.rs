@@ -121,6 +121,34 @@ fn first_word(s: &String) -> &str {
     &s[..]
 }
 
+struct User {
+    username: String,
+    email: String,
+    sign_in_count: u64,
+    active: bool,
+}
+
+struct Point(i32, i32, i32);
+
+fn dimensions(dim: (i32, i32)) -> i32 {
+    dim.0 * dim.1
+}
+
+struct Square {
+    width: i32,
+    height: i32,
+}
+
+impl Square {
+    fn area(&self) -> i32 {
+        self.width * self.height
+    }
+}
+
+fn area(sq: &Square) -> i32 {
+    sq.width * sq.height
+}
+
 const PI: f64 = 3.14159;
 
 fn main() {
@@ -557,6 +585,33 @@ fn main() {
     let arr_0001 = [1, 2, 3, 4, 5];
     let slice_0001 = &arr_0001[1..3]; // This slice has the type &[i32].
     assert_eq!(slice_0001, [2, 3]);
+
+    let user_001 = User {
+        username: "admin".to_string(),
+        email: "hello@clivern.com".to_string(),
+        sign_in_count: 1,
+        active: true,
+    };
+
+    assert_eq!(user_001.username, "admin");
+    assert_eq!(user_001.email, "hello@clivern.com");
+    assert_eq!(user_001.sign_in_count, 1);
+    assert_eq!(user_001.active, true);
+
+    let point_001 = Point(1, 2, 3);
+    assert_eq!(point_001.0, 1);
+    assert_eq!(point_001.1, 2);
+    assert_eq!(point_001.2, 3);
+
+    assert_eq!(16, dimensions((4, 4)));
+
+    let sq_001 = Square {
+        width: 4,
+        height: 4,
+    };
+
+    assert_eq!(16, area(&sq_001));
+    assert_eq!(16, sq_001.area());
 }
 
 fn primitive_data_types() {
