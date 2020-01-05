@@ -11,10 +11,8 @@ jobs:
     fast_finish: true
 
 before_script:
-    - rustup component add rustfmt
+    - make config
 
 script:
-    - cargo build --verbose --all
-    - cargo test --verbose --all
-    - cargo fmt -- --check
-    - cargo run
+    - make ci
+    - make run

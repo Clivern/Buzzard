@@ -66,6 +66,63 @@ impl Person {
     }
 }
 
+trait Show {
+    fn show(&self) -> String;
+}
+
+impl Show for i32 {
+    fn show(&self) -> String {
+        format!("four-byte signed {}", self)
+    }
+}
+
+// Here, some_string goes out of scope and `drop` is called. The backing
+// memory is freed.
+fn takes_ownership(some_string: String) {
+    println!("{}", some_string);
+}
+
+// Here, some_integer goes out of scope. Nothing special happens.
+fn makes_copy(some_integer: i32) {
+    println!("{}", some_integer);
+}
+
+fn gives_ownership() -> String {
+    let some_string = "Hello".to_string();
+    some_string
+}
+
+// takes_and_gives_back will take a String and return one
+fn takes_and_gives_back(a_string: String) -> String {
+    a_string // a_string is returned and moves out to the calling function
+}
+
+fn borrow(a: &String) -> usize {
+    a.len()
+}
+
+//fn change(a: &String) {
+//    a.push_str(", world");
+//}
+
+fn change_mut(a: &mut String) {
+    a.push_str(", world");
+}
+
+fn first_word(s: &String) -> &str {
+    let bytes = s.as_bytes();
+
+    for (i, &item) in bytes.iter().enumerate() {
+        if item == b' ' {
+            return &s[0..i];
+        }
+    }
+
+    &s[..]
+}
+
+const PI: f64 = 3.14159;
+
 fn main() {
     //////// https://stevedonovan.github.io/rust-gentle-intro/1-basics.html
     //////// https://doc.rust-lang.org/std/index.html
@@ -299,6 +356,207 @@ fn main() {
 
     let x = format!("{}, {}!", "Hello", "world");
     assert_eq!(x, "Hello, world!");
+
+    assert_eq!(PI, 3.14159);
+
+    // Shadowing
+    // you can declare a new variable with the same name as a previous variable,
+    // and the new variable shadows the previous variable.
+
+    let sh_var = 5;
+    let sh_var = sh_var + 1;
+    let sh_var = sh_var * 2;
+    assert_eq!(sh_var, 12);
+
+    // with shadowing we can change the var type
+    let sh_str = "hello";
+    assert_eq!(sh_str, "hello");
+
+    let sh_str = sh_str.len();
+    assert_eq!(sh_str, 5);
+
+    let heart_eyed_cat = "😻";
+    assert_eq!(heart_eyed_cat, "😻");
+
+    // Compound types can group multiple values into one type.
+    // Rust has two primitive compound types: tuples and arrays.
+    let mut tup = (64, 64.0, "Hello");
+    assert_eq!(tup.0, 64);
+    assert_eq!(tup.1, 64.0);
+    assert_eq!(tup.2, "Hello");
+    tup.0 = 77;
+    assert_eq!(tup.0, 77);
+
+    let tupl: (i32, f64, String) = (50, 6.4, "Hello".to_string());
+    assert_eq!(tupl.0, 50);
+    assert_eq!(tupl.1, 6.4);
+    assert_eq!(tupl.2, "Hello".to_string());
+
+    let a_aa: [i64; 2] = [1, 2];
+    assert_eq!(a_aa[0], 1);
+    assert_eq!(a_aa[1], 2);
+
+    let z = 4;
+    let c = {
+        let z = 6;
+        z * 3
+    };
+    assert_eq!(z, 4);
+    assert_eq!(c, 18);
+
+    let number = 3;
+    assert_eq!(true, number < 5);
+    assert_eq!(true, number == 3);
+
+    let text = "Hello";
+    assert_eq!(text, "Hello");
+
+    let t = 20;
+
+    if t > 0 && t < 10 {
+        println!("t is more than 0 && less than 10");
+    } else if t < 20 && t > 10 {
+        println!("t is more than 10 && less than 20");
+    } else {
+        println!("t is more than 20");
+    }
+
+    let ol1 = if t >= 20 { 3 } else { 4 };
+    let ol2 = {
+        if t > 20 {
+            3
+        } else {
+            4
+        }
+    };
+
+    assert_eq!(ol1, 3);
+    assert_eq!(ol2, 4);
+
+    let mut inc = 0;
+
+    loop {
+        if inc == 3 {
+            break;
+        }
+        assert_eq!(true, [0, 1, 2].contains(&inc));
+        inc += 1;
+    }
+
+    assert_eq!(3, inc);
+
+    let mut inc01 = 0;
+    let result = loop {
+        inc01 += 1;
+        if inc01 == 3 {
+            break inc01;
+        }
+    };
+
+    assert_eq!(3, result);
+
+    let mut yl = 0;
+    while yl < 10 {
+        yl += 1;
+    }
+    assert_eq!(10, yl);
+
+    let mut text09 = "Hello".to_string();
+    text09 += " World";
+    text09.push_str("!");
+    assert_eq!(text09, "Hello World!");
+
+    {
+        let scope = "Hello".to_string();
+        assert_eq!(scope, "Hello");
+    }
+    // scope gone, In rust the memory is automatically returned once the variable that owns it goes out of scope
+    // When a variable goes out of scope, Rust calls a special function for us.
+    // This function is called drop, and it’s where the author of String can put the code to return the memory.
+    // Rust calls drop automatically at the closing curly bracket.
+
+    let x_001 = 5;
+    let y_001 = x_001; //  make a copy of the value in x_001 and bind it to y_001
+                       // now we have both y_001 and x_001
+    assert_eq!(x_001, 5);
+    assert_eq!(y_001, 5);
+
+    let s_001 = "Hello".to_string();
+    let s_002 = s_001;
+    // Rust won't copy the value here too because it could be very expensive in terms of runtime performance if the data on the heap were large.
+    // also it won't alllow a reference to same value because when s_001 and s_002 go out of scope,
+    // they will both try to free the same memory. This is known as a double free error
+    //  Instead rust conside s_001 not valid anymore and doesn’t need to free anything when s_001 goes out of scope.
+
+    //assert_eq!(s_001, "Hello"); // will throw error since value
+    assert_eq!(s_002, "Hello");
+
+    // If we do want to deeply copy the heap data of the String
+    let s_003 = "Hello".to_string();
+    let s_004 = s_003.clone();
+
+    assert_eq!(s_003, "Hello");
+    assert_eq!(s_004, "Hello");
+
+    let x_001 = String::from("hello");
+
+    takes_ownership(x_001.clone());
+
+    //println!("{:?}", x_001); -> error value borrowed here after move into takes_ownership
+
+    let y_001 = "Hello".to_string();
+    takes_ownership(y_001.clone()); // takes a copy so y_001 still on the scope
+    assert_eq!(y_001, "Hello");
+
+    let x_008 = 5;
+    makes_copy(x_008);
+    assert_eq!(x_008, 5);
+
+    let z_0001 = gives_ownership();
+    assert_eq!(z_0001, "Hello");
+
+    let z_0002 = "Hello".to_string();
+    assert_eq!(z_0002, "Hello");
+
+    let z_0003 = takes_and_gives_back(z_0002);
+    assert_eq!(z_0003, "Hello");
+    // assert_eq!(z_0002, "Hello"); -> fails since z_0002 not valid anymore
+
+    // The &k_001 syntax lets us create a reference that refers to the value of k_001 but does not own it.
+    // Because it does not own it, the value it points to will not be dropped when the reference goes out of scope.
+    let k_001 = "Hello".to_string();
+    let k_002 = borrow(&k_001);
+    assert_eq!(k_001, "Hello");
+    assert_eq!(k_002, 5);
+
+    // change(&k_001); -> error because just as variables are immutable by default,
+    // so are references. We’re not allowed to modify something we have a reference to.
+
+    // First, we had to change k_003 to be mut.
+    // Then we had to create a mutable reference with &mut k_003 and accept a mutable reference with some_string: &mut String.
+    let mut k_003 = "Hello".to_string();
+    change_mut(&mut k_003);
+    assert_eq!(k_003, "Hello, world");
+
+    // The Slice Type (&str)
+    // A string slice is a reference to part of a String, and it looks like this:
+    let str_total = "Hello".to_string();
+    let slice_001 = &str_total[0..2];
+    assert_eq!(slice_001, "He");
+
+    let word_001 = "Hello World!".to_string();
+    let word_002 = "HelloWorld!".to_string();
+    assert_eq!(first_word(&word_001), "Hello");
+    assert_eq!(first_word(&word_002), "HelloWorld!");
+
+    // String Literals Are Slices
+    let str_lit_001 = "HelloWorld!";
+    assert_eq!(first_word(&word_002), str_lit_001);
+
+    // there’s a more general slice type, too. Consider this array:
+    let arr_0001 = [1, 2, 3, 4, 5];
+    let slice_0001 = &arr_0001[1..3]; // This slice has the type &[i32].
+    assert_eq!(slice_0001, [2, 3]);
 }
 
 fn primitive_data_types() {
@@ -323,6 +581,8 @@ Primitive Data Types:
 - slice : A dynamically-sized view into a contiguous sequence, [T].
 - str : String slices.
 - tuple : A finite heterogeneous sequence, (T, U, ..).
+
+----> Ref: https://doc.rust-lang.org/book/ch03-02-data-types.html
     ");
 }
 
