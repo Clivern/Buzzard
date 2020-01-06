@@ -1,3 +1,40 @@
+fn primitive_data_types() {
+    println!("
+Primitive Data Types:
+---------------------
+- bool : The boolean type.
+- char : A character type.
+- i8 : The 8-bit signed integer type.
+- i16 : The 16-bit signed integer type.
+- i32 : The 32-bit signed integer type.
+- i64 : The 64-bit signed integer type.
+- isize : The pointer-sized signed integer type.
+- u8 : The 8-bit unsigned integer type.
+- u16 : The 16-bit unsigned integer type.
+- u32 : The 32-bit unsigned integer type.
+- u64 : The 64-bit unsigned integer type.
+- usize : The pointer-sized unsigned integer type.
+- f32 : The 32-bit floating point type.
+- f64 : The 64-bit floating point type.
+- array : A fixed-size array, denoted [T; N], for the element type, T, and the non-negative compile-time constant size, N.
+- slice : A dynamically-sized view into a contiguous sequence, [T].
+- str : String slices.
+- tuple : A finite heterogeneous sequence, (T, U, ..).
+
+----> Ref: https://doc.rust-lang.org/book/ch03-02-data-types.html
+    ");
+}
+
+fn rust_docs() {
+    println!(
+        "
+Rust docs in browser:
+--------------------
+$ rustup doc --std
+    "
+    );
+}
+
 fn sqrt(x: f64) -> f64 {
     return x * x;
 }
@@ -162,6 +199,19 @@ struct IpAddress {
 enum IpAddr {
     V4(u8, u8, u8, u8),
     V6(String),
+}
+
+#[derive(Debug)]
+enum Currency {
+    Dollar,
+    Euro,
+}
+
+fn get_sign(cur: Currency) -> String {
+    match cur {
+        Currency::Euro => "Euro".to_string(),
+        Currency::Dollar => "Dollar".to_string(),
+    }
 }
 
 const PI: f64 = 3.14159;
@@ -652,41 +702,33 @@ fn main() {
 
     assert_eq!(some_num_001.unwrap(), 5);
     assert_eq!(some_str_001.unwrap(), "Hello World");
-}
 
-fn primitive_data_types() {
-    println!("
-Primitive Data Types:
----------------------
-- bool : The boolean type.
-- char : A character type.
-- i8 : The 8-bit signed integer type.
-- i16 : The 16-bit signed integer type.
-- i32 : The 32-bit signed integer type.
-- i64 : The 64-bit signed integer type.
-- isize : The pointer-sized signed integer type.
-- u8 : The 8-bit unsigned integer type.
-- u16 : The 16-bit unsigned integer type.
-- u32 : The 32-bit unsigned integer type.
-- u64 : The 64-bit unsigned integer type.
-- usize : The pointer-sized unsigned integer type.
-- f32 : The 32-bit floating point type.
-- f64 : The 64-bit floating point type.
-- array : A fixed-size array, denoted [T; N], for the element type, T, and the non-negative compile-time constant size, N.
-- slice : A dynamically-sized view into a contiguous sequence, [T].
-- str : String slices.
-- tuple : A finite heterogeneous sequence, (T, U, ..).
+    // Matching
+    assert_eq!(get_sign(Currency::Euro), "Euro");
+    assert_eq!(get_sign(Currency::Dollar), "Dollar");
 
-----> Ref: https://doc.rust-lang.org/book/ch03-02-data-types.html
-    ");
-}
+    let cur_001 = Currency::Euro;
+    match cur_001 {
+        Currency::Euro => {
+            println!("{:?}", cur_001); // -> Euro
+        }
+        Currency::Dollar => {
+            println!("{:?}", cur_001);
+        }
+    }
 
-fn rust_docs() {
-    println!(
-        "
-Rust docs in browser:
---------------------
-$ rustup doc --std
-    "
-    );
+    // Matching with Option<T>
+    let five_001 = Some(5);
+    let six_001 = match five_001 {
+        None => None,
+        Some(i) => Some(i + 1),
+    };
+    assert_eq!(Some(6), six_001);
+
+    // if let is syntax sugar for a match that runs code when the value matches one pattern and then ignores all other values.
+    if let Some(6) = six_001 {
+        assert_eq!(true, true);
+    } else {
+        assert_eq!(true, false);
+    }
 }
