@@ -149,6 +149,21 @@ fn area(sq: &Square) -> i32 {
     sq.width * sq.height
 }
 
+enum IpType {
+    V4,
+    V6,
+}
+
+struct IpAddress {
+    address: String,
+    kind: IpType,
+}
+
+enum IpAddr {
+    V4(u8, u8, u8, u8),
+    V6(String),
+}
+
 const PI: f64 = 3.14159;
 
 fn main() {
@@ -612,6 +627,31 @@ fn main() {
 
     assert_eq!(16, area(&sq_001));
     assert_eq!(16, sq_001.area());
+
+    let ip_0001 = IpAddress {
+        address: "127.0.0.1".to_string(),
+        kind: IpType::V4,
+    };
+
+    assert_eq!(ip_0001.address, "127.0.0.1");
+
+    let type_001 = match ip_0001.kind {
+        IpType::V4 => "V4",
+        IpType::V6 => "V6",
+    };
+    assert_eq!(type_001, "V4");
+
+    let _ip_addr_v4 = IpAddr::V4(127, 0, 0, 1);
+    let _ip_addr_v6 = IpAddr::V6("::1".to_string());
+
+    let some_num_001 = Some(5); // -> will be of type Option<i8>
+    let some_str_001 = Some("Hello World"); // -> will be of type Option<str>
+    let absent_001: Option<i32> = None;
+    let absent_002 = None; // will be of type Option<T>
+    assert_eq!(absent_002, absent_001);
+
+    assert_eq!(some_num_001.unwrap(), 5);
+    assert_eq!(some_str_001.unwrap(), "Hello World");
 }
 
 fn primitive_data_types() {
