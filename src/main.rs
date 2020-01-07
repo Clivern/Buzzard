@@ -1,5 +1,8 @@
 mod front_house;
 mod sub;
+use front_house::another_mod::another_pub_fun as another_pub_fun_import;
+use front_house::another_mod as another_mod_import;
+use front_house as front_house_import;
 
 extern crate rand;
 
@@ -857,6 +860,18 @@ fn main() {
         front_house::another_mod::another_pub_fun(),
         "Hello".to_string()
     );
+
+    assert_eq!(
+        front_house_import::another_mod::another_pub_fun(),
+        "Hello".to_string()
+    );
+
+    assert_eq!(
+        another_mod_import::another_pub_fun(),
+        "Hello".to_string()
+    );
+
+    assert_eq!(another_pub_fun_import(), "Hello".to_string());
     assert_eq!(
         sub::back_yard::another_mod::another_pub_fun(),
         "Hello".to_string()
