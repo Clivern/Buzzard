@@ -1,6 +1,8 @@
 mod front_house;
 mod sub;
 
+extern crate rand;
+
 // A module named `my_mod`
 mod my_mod {
     // Items in modules default to private visibility.
@@ -859,4 +861,6 @@ fn main() {
         sub::back_yard::another_mod::another_pub_fun(),
         "Hello".to_string()
     );
+
+    println!("{:?}", rand::random::<f64>());
 }
