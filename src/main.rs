@@ -301,6 +301,12 @@ fn get_sign(cur: Currency) -> String {
     }
 }
 
+enum SpreadsheetCell {
+    Int(i32),
+    Float(f64),
+    Text(String),
+}
+
 const PI: f64 = 3.14159;
 
 fn main() {
@@ -875,4 +881,55 @@ fn main() {
     );
 
     println!("{:?}", rand::random::<f64>());
+
+    let mut vec_001: Vec<i32> = Vec::new();
+    vec_001.push(1);
+    vec_001.push(2);
+    vec_001.push(3);
+    vec_001.push(4);
+    vec_001.push(5);
+
+    let vec_002 = vec![1, 2, 3, 4, 5];
+
+    let mut vec_003 = vec![1, 2, 3, 4, 5];
+    vec_003.push(6);
+    assert_eq!(vec_003, vec![1, 2, 3, 4, 5, 6]);
+
+    // vec_002.push(2); -> will fail
+
+    for i in vec_002 {
+        assert_eq!(true, [1, 2, 3, 4, 5].contains(&i));
+    }
+
+    for i in &mut vec_001 {
+        *i += 1; // will update value inside the vec
+    }
+
+    assert_eq!(vec_001, vec![2, 3, 4, 5, 6]);
+
+    let row = vec![
+        SpreadsheetCell::Int(3),
+        SpreadsheetCell::Text("blue".to_string()),
+        SpreadsheetCell::Float(10.12),
+    ];
+    assert_eq!(row.len(), 3);
+
+    // ///////
+    // for more vec -> https://doc.rust-lang.org/std/vec/struct.Vec.html
+    // ///////
+
+    let mut text_0001 = String::from("Hello");
+    text_0001.push_str(" World");
+    text_0001.push('.'); // -> only to append one char
+
+    for c in text_0001.chars() {
+        assert_eq!(
+            true,
+            ['H', 'e', 'l', 'l', 'o', ' ', 'W', 'o', 'r', 'l', 'd', '.'].contains(&c)
+        );
+    }
+
+    // ///////////
+    // https://doc.rust-lang.org/book/ch08-03-hash-maps.html
+    // ///////////
 }
