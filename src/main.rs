@@ -3,6 +3,7 @@ mod sub;
 use front_house as front_house_import;
 use front_house::another_mod as another_mod_import;
 use front_house::another_mod::another_pub_fun as another_pub_fun_import;
+use std::collections::HashMap;
 
 extern crate rand;
 
@@ -932,4 +933,26 @@ fn main() {
     // ///////////
     // https://doc.rust-lang.org/book/ch08-03-hash-maps.html
     // ///////////
+
+    let mut scores_001 = HashMap::new();
+
+    scores_001.insert("blue".to_string(), 10);
+    scores_001.insert("yellow".to_string(), 50);
+
+    for (key, value) in &scores_001 {
+        assert_eq!(scores_001.get(key).unwrap(), value);
+    }
+
+    let text_003 = "hello world wonderful world";
+    let mut word_map_001 = HashMap::new();
+
+    for word in text_003.split_whitespace() {
+        let count = word_map_001.entry(word).or_insert(0);
+        *count += 1;
+    }
+
+    assert_eq!(*word_map_001.get("hello").unwrap(), 1);
+    assert_eq!(*word_map_001.get("wonderful").unwrap(), 1);
+    assert_eq!(*word_map_001.get("world").unwrap(), 2);
+    // println!("{:?}", word_map_001); // {"world": 2, "hello": 1, "wonderful": 1}
 }
