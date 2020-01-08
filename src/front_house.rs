@@ -6,8 +6,5 @@ pub mod another_mod {
 
 #[test]
 fn test_another_pub_fun() {
-    assert_eq!(
-        another_mod::another_pub_fun(),
-        "Hello".to_string()
-    );
+    assert_eq!(another_mod::another_pub_fun(), "Hello".to_string());
 }

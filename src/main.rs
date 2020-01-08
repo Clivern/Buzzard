@@ -955,4 +955,8 @@ fn main() {
     assert_eq!(*word_map_001.get("wonderful").unwrap(), 1);
     assert_eq!(*word_map_001.get("world").unwrap(), 2);
     // println!("{:?}", word_map_001); // {"world": 2, "hello": 1, "wonderful": 1}
+
+    // Unrecoverable Errors
+    // export RUST_BACKTRACE=1 will show stacktrace
+    // panic!("crash and burn");
 }
