@@ -118,7 +118,9 @@ fn rust_docs() {
         "
 Rust docs in browser:
 --------------------
+$ rustup doc --book
 $ rustup doc --std
+$ rustup doc --cargo
     "
     );
 }
