@@ -1000,4 +1000,16 @@ fn main() {
             println!("{:?}", err);
         }
     }
+
+    // The unwrap() function returns the actual result an operation succeeds.
+    // It returns a panic with a default error message if an operation fails.
+    // This function is a shorthand for match statement.
+    let i_10 = is_even(10);
+
+    assert_eq!(i_10.unwrap(), true);
+
+    let _i_09 = is_even(9);
+    // i_09.unwrap(); -> will panic
+
+    // let i_19 = is_even(19).expect("19 not even so panic"); // thread 'main' panicked at '19 not even so panic: "Not an even"', src/libcore/result.rs:1165:5
 }
