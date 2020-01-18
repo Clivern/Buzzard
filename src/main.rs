@@ -310,6 +310,14 @@ enum SpreadsheetCell {
     Text(String),
 }
 
+fn is_even(n: i32) -> Result<bool, String> {
+    if n % 2 == 0 {
+        return Ok(true);
+    }
+
+    return Err("Not an even".to_string());
+}
+
 const PI: f64 = 3.14159;
 
 fn main() {
@@ -961,4 +969,35 @@ fn main() {
     // Unrecoverable Errors
     // export RUST_BACKTRACE=1 will show stacktrace
     // panic!("crash and burn");
+
+    // ///////////////
+    // Error Handling
+    // ///////////////
+    let i07 = is_even(7);
+
+    match i07 {
+        Ok(d) => {
+            assert_eq!(i07, Ok(true));
+            assert_eq!(d, true);
+            println!("An even {:?}", i07);
+        }
+        Err(err) => {
+            assert_eq!("Not an even".to_string(), err);
+            println!("{:?}", err);
+        }
+    }
+
+    let i08 = is_even(8);
+
+    match i08 {
+        Ok(d) => {
+            assert_eq!(i08, Ok(true));
+            assert_eq!(d, true);
+            println!("An even {:?}", i08);
+        }
+        Err(err) => {
+            assert_eq!("Not an even".to_string(), err);
+            println!("{:?}", err);
+        }
+    }
 }
