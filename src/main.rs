@@ -318,6 +318,45 @@ fn is_even(n: i32) -> Result<bool, String> {
     return Err("Not an even".to_string());
 }
 
+fn largest(list: &[i32]) -> i32 {
+    let mut largest = list[0];
+
+    for &item in list.iter() {
+        if item > largest {
+            largest = item;
+        }
+    }
+
+    largest
+}
+
+fn largest_char(list: &[char]) -> char {
+    let mut largest = list[0];
+
+    for &item in list.iter() {
+        if item > largest {
+            largest = item;
+        }
+    }
+
+    largest
+}
+
+struct PointGeneric<T, U> {
+    x: T,
+    y: U,
+}
+
+impl<T, U> PointGeneric<T, U> {
+    fn get_x(&self) -> &T {
+        &self.x
+    }
+
+    fn get_y(&self) -> &U {
+        &self.y
+    }
+}
+
 const PI: f64 = 3.14159;
 
 fn main() {
@@ -1012,4 +1051,20 @@ fn main() {
     // i_09.unwrap(); -> will panic
 
     // let i_19 = is_even(19).expect("19 not even so panic"); // thread 'main' panicked at '19 not even so panic: "Not an even"', src/libcore/result.rs:1165:5
+
+    let num_list_001 = vec![10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+    let num_list_002 = vec![11, 21, 31, 41, 51, 61, 71, 81, 91, 101];
+
+    assert_eq!(100, largest(&num_list_001));
+    assert_eq!(101, largest(&num_list_002));
+
+    let chars_list_001 = vec!['d', 'a', 'b', 'e', 'c'];
+    assert_eq!('e', largest_char(&chars_list_001));
+
+    let generic_point_001 = PointGeneric { x: 3, y: 4.0 };
+
+    assert_eq!(generic_point_001.x, 3);
+    assert_eq!(*generic_point_001.get_x(), 3);
+    assert_eq!(generic_point_001.y, 4.0);
+    assert_eq!(*generic_point_001.get_y(), 4.0);
 }
