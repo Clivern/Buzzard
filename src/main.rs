@@ -357,6 +357,30 @@ impl<T, U> PointGeneric<T, U> {
     }
 }
 
+pub trait Summary {
+    fn summarize(&self) -> String;
+}
+
+pub struct Article {
+    pub headline: String,
+}
+
+pub struct Tweet {
+    pub username: String,
+}
+
+impl Summary for Article {
+    fn summarize(&self) -> String {
+        format!("{}", self.headline)
+    }
+}
+
+impl Summary for Tweet {
+    fn summarize(&self) -> String {
+        format!("{}", self.username)
+    }
+}
+
 const PI: f64 = 3.14159;
 
 fn main() {
@@ -1067,4 +1091,16 @@ fn main() {
     assert_eq!(*generic_point_001.get_x(), 3);
     assert_eq!(generic_point_001.y, 4.0);
     assert_eq!(*generic_point_001.get_y(), 4.0);
+
+    // Defining Shared Behavior
+    let article_001 = Article {
+        headline: "Hello World".to_string(),
+    };
+
+    let tweet_001 = Tweet {
+        username: "admin".to_string(),
+    };
+
+    assert_eq!("Hello World".to_string(), article_001.summarize());
+    assert_eq!("admin".to_string(), tweet_001.summarize());
 }
