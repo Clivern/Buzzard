@@ -359,6 +359,11 @@ impl<T, U> PointGeneric<T, U> {
 
 pub trait Summary {
     fn summarize(&self) -> String;
+
+    // Default Implementations
+    fn summarize_default(&self) -> String {
+        "@default implementations".to_string()
+    }
 }
 
 pub struct Article {
@@ -1103,4 +1108,7 @@ fn main() {
 
     assert_eq!("Hello World".to_string(), article_001.summarize());
     assert_eq!("admin".to_string(), tweet_001.summarize());
+
+    assert_eq!("@default implementations".to_string(), article_001.summarize_default());
+    assert_eq!("@default implementations".to_string(), tweet_001.summarize_default());
 }
