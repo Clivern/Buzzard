@@ -386,6 +386,18 @@ impl Summary for Tweet {
     }
 }
 
+// Traits as Parameters
+fn summarize_001(item: &impl Summary) -> String {
+    item.summarize()
+}
+
+// Returning Types that Implement Traits
+fn new_article() -> impl Summary {
+    Article {
+        headline: "Hello World".to_string(),
+    }
+}
+
 const PI: f64 = 3.14159;
 
 fn main() {
@@ -1101,17 +1113,25 @@ fn main() {
     let article_001 = Article {
         headline: "Hello World".to_string(),
     };
-
+    let article_002 = new_article();
     let tweet_001 = Tweet {
         username: "admin".to_string(),
     };
 
     assert_eq!("Hello World".to_string(), article_001.summarize());
+    assert_eq!("Hello World".to_string(), article_002.summarize());
     assert_eq!("admin".to_string(), tweet_001.summarize());
+    assert_eq!("Hello World".to_string(), summarize_001(&article_001));
+    assert_eq!("Hello World".to_string(), summarize_001(&article_002));
+    assert_eq!("admin".to_string(), summarize_001(&tweet_001));
 
     assert_eq!(
         "@default implementations".to_string(),
         article_001.summarize_default()
+    );
+    assert_eq!(
+        "@default implementations".to_string(),
+        article_002.summarize_default()
     );
     assert_eq!(
         "@default implementations".to_string(),
