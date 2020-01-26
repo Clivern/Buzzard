@@ -18,14 +18,14 @@ config:
 ## build: Build binary
 build:
 	@echo "\n>> ============= Cargo Build ============= <<"
-	-rm -rf target
+	rm -rf target
 	$(CARGO) build --verbose --all
 
 
 ## release: Build releases
 release:
 	@echo "\n>> ============= Cargo Release ============= <<"
-	-rm -rf target
+	rm -rf target
 	$(CARGO) build --release --verbose
 
 
