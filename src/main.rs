@@ -387,6 +387,7 @@ impl Summary for Tweet {
 }
 
 // Traits as Parameters
+// Traits is just interfaces with default implementation ability
 fn summarize_001(item: &impl Summary) -> String {
     item.summarize()
 }
