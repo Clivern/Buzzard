@@ -399,6 +399,25 @@ fn new_article() -> impl Summary {
     }
 }
 
+// Lifetime Annotations in Function Signatures
+// The help text reveals that the return type needs a generic lifetime parameter on it because
+// Rust can’t tell whether the reference being returned refers to x or y
+fn longest_01<'a>(x: &'a str, y: &'a str) -> &'a str {
+    if x.len() > y.len() {
+        x
+    } else {
+        y
+    }
+}
+
+fn longest_02(x: String, y: String) -> String {
+    if x.len() > y.len() {
+        x
+    } else {
+        y
+    }
+}
+
 const PI: f64 = 3.14159;
 
 fn main() {
@@ -1138,4 +1157,12 @@ fn main() {
         "@default implementations".to_string(),
         tweet_001.summarize_default()
     );
+
+    let res_0001 = "Hello";
+    let res_0002 = "World ";
+    let res_0003 = longest_01(res_0001, res_0002);
+    assert_eq!("World ", res_0003);
+
+    let res_0003 = longest_02("Hello".to_string(), "World ".to_string());
+    assert_eq!("World ".to_string(), res_0003);
 }
