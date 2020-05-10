@@ -1165,4 +1165,13 @@ fn main() {
 
     let res_0003 = longest_02("Hello".to_string(), "World ".to_string());
     assert_eq!("World ".to_string(), res_0003);
+
+    // Iterators
+    let list_001 = vec![1, 2, 3, 4, 5];
+    let total_001: i32 = list_001.iter().sum();
+    assert_eq!(total_001, 15);
+    let list_002: Vec<_> = list_001.iter().map(|x| x + 1).collect();
+
+    println!("{:?}", list_002);
+    assert_eq!(vec![2, 3, 4, 5, 6], list_002);
 }
