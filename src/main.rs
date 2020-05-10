@@ -261,19 +261,19 @@ fn dimensions(dim: (i32, i32)) -> i32 {
     dim.0 * dim.1
 }
 
-struct Square {
+struct Rectangle {
     width: i32,
     height: i32,
 }
 
-impl Square {
+impl Rectangle {
     fn area(&self) -> i32 {
         self.width * self.height
     }
 }
 
-fn area(sq: &Square) -> i32 {
-    sq.width * sq.height
+fn area(rt: &Rectangle) -> i32 {
+    rt.width * rt.height
 }
 
 #[allow(dead_code)]
@@ -419,7 +419,7 @@ fn longest_02(x: String, y: String) -> String {
     }
 }
 
-const CONST: f64 = 3.4563;
+const HUBBLE_CONSTANT: f64 = 69.8; // July 2019 measurement, units: (km/sec) / megaparsec
 
 fn main() {
     //////// https://stevedonovan.github.io/rust-gentle-intro/1-basics.html
@@ -483,6 +483,9 @@ fn main() {
 
     // Basic mathematical constants -> https://doc.rust-lang.org/std/f64/consts/index.html
     println!("PI -> {}", std::f64::consts::PI);
+
+    // Program-wide constants
+    assert_eq!(HUBBLE_CONSTANT, 69.8);
 
     //////// Arrays
     let arr = [10, 20, 30, 40];
@@ -657,8 +660,6 @@ fn main() {
 
     let x = format!("{}, {}!", "Hello", "world");
     assert_eq!(x, "Hello, world!");
-
-    assert_eq!(CONST, 3.4563);
 
     // Shadowing
     // you can declare a new variable with the same name as a previous variable,
@@ -878,13 +879,13 @@ fn main() {
 
     assert_eq!(16, dimensions((4, 4)));
 
-    let sq_001 = Square {
+    let rt_001 = Rectangle {
         width: 4,
         height: 4,
     };
 
-    assert_eq!(16, area(&sq_001));
-    assert_eq!(16, sq_001.area());
+    assert_eq!(16, area(&rt_001));
+    assert_eq!(16, rt_001.area());
 
     let ip_0001 = IpAddress {
         address: "127.0.0.1".to_string(),
