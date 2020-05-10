@@ -245,7 +245,7 @@ fn first_word(s: &String) -> &str {
         }
     }
 
-    &s[..]
+    &s
 }
 
 struct User {
@@ -276,6 +276,7 @@ fn area(sq: &Square) -> i32 {
     sq.width * sq.height
 }
 
+#[allow(dead_code)]
 enum IpType {
     V4,
     V6,
