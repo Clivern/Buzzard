@@ -261,19 +261,19 @@ fn dimensions(dim: (i32, i32)) -> i32 {
     dim.0 * dim.1
 }
 
-struct Square {
+struct Rectangle {
     width: i32,
     height: i32,
 }
 
-impl Square {
+impl Rectangle {
     fn area(&self) -> i32 {
         self.width * self.height
     }
 }
 
-fn area(sq: &Square) -> i32 {
-    sq.width * sq.height
+fn area(rt: &Rectangle) -> i32 {
+    rt.width * rt.height
 }
 
 #[allow(dead_code)]
@@ -878,13 +878,13 @@ fn main() {
 
     assert_eq!(16, dimensions((4, 4)));
 
-    let sq_001 = Square {
+    let rt_001 = Rectangle {
         width: 4,
         height: 4,
     };
 
-    assert_eq!(16, area(&sq_001));
-    assert_eq!(16, sq_001.area());
+    assert_eq!(16, area(&rt_001));
+    assert_eq!(16, rt_001.area());
 
     let ip_0001 = IpAddress {
         address: "127.0.0.1".to_string(),
