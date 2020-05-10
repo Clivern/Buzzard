@@ -419,7 +419,7 @@ fn longest_02(x: String, y: String) -> String {
     }
 }
 
-const CONST: f64 = 3.4563;
+const HUBBLE_CONSTANT: f64 = 69.8; // July 2019 measurement, units: (km/sec) / megaparsec
 
 fn main() {
     //////// https://stevedonovan.github.io/rust-gentle-intro/1-basics.html
@@ -483,6 +483,9 @@ fn main() {
 
     // Basic mathematical constants -> https://doc.rust-lang.org/std/f64/consts/index.html
     println!("PI -> {}", std::f64::consts::PI);
+
+    // Program-wide constants
+    assert_eq!(HUBBLE_CONSTANT, 69.8);
 
     //////// Arrays
     let arr = [10, 20, 30, 40];
@@ -657,8 +660,6 @@ fn main() {
 
     let x = format!("{}, {}!", "Hello", "world");
     assert_eq!(x, "Hello, world!");
-
-    assert_eq!(CONST, 3.4563);
 
     // Shadowing
     // you can declare a new variable with the same name as a previous variable,
