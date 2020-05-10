@@ -126,7 +126,7 @@ $ rustup doc --cargo
 }
 
 fn sqrt(x: f64) -> f64 {
-    return x * x;
+    return x.sqrt();
 }
 
 // retuns the last statement value by default
@@ -419,7 +419,7 @@ fn longest_02(x: String, y: String) -> String {
     }
 }
 
-const PI: f64 = 3.14159;
+const CONST: f64 = 3.4563;
 
 fn main() {
     //////// https://stevedonovan.github.io/rust-gentle-intro/1-basics.html
@@ -480,6 +480,9 @@ fn main() {
     println!("{}", std::env::consts::OS);
     println!("{}", std::env::consts::FAMILY);
     println!("{}", std::env::consts::ARCH);
+
+    // Basic mathematical constants -> https://doc.rust-lang.org/std/f64/consts/index.html
+    println!("PI -> {}", std::f64::consts::PI);
 
     //////// Arrays
     let arr = [10, 20, 30, 40];
@@ -655,7 +658,7 @@ fn main() {
     let x = format!("{}, {}!", "Hello", "world");
     assert_eq!(x, "Hello, world!");
 
-    assert_eq!(PI, 3.14159);
+    assert_eq!(CONST, 3.4563);
 
     // Shadowing
     // you can declare a new variable with the same name as a previous variable,
