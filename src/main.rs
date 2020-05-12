@@ -129,7 +129,7 @@ fn sqrt(x: f64) -> f64 {
     return x.sqrt();
 }
 
-// retuns the last statement value by default
+// Functions return the last statement value by default.
 fn mutiple_of_two(x: f64) -> f64 {
     x * 2.0
 }
@@ -142,10 +142,12 @@ fn abs(x: f64) -> f64 {
     }
 }
 
+// Read-only borrow.
 fn by_ref(x: &f64) -> f64 {
     *x + 1.0
 }
 
+// Mutable borrow.
 fn modifies(x: &mut f64) {
     *x += 1.0;
 }
@@ -160,9 +162,11 @@ fn arr_sum(values: &[i32]) -> i32 {
 }
 
 fn dump(arr: &[i32]) {
+    // If type is defined with #[derive(Debug)], you may use debug print {:?} in the format string.
     println!("arr is {:?}", arr);
 }
 
+// Return a tuple
 fn add_mul(x: f64, y: f64) -> (f64, f64) {
     (x + y, x * y)
 }
@@ -625,7 +629,7 @@ fn main() {
 
     //////// Tuple
     let tuple = ("hello", 5, "world");
-    let (add, mul) = add_mul(3.0, 2.0);
+    let (add, mul) = add_mul(3.0, 2.0);  // destructuring tuple assignment using let
 
     assert_eq!(tuple.0, "hello".to_string());
     assert_eq!(tuple.1, 5);
