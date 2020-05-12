@@ -629,7 +629,7 @@ fn main() {
 
     //////// Tuple
     let tuple = ("hello", 5, "world");
-    let (add, mul) = add_mul(3.0, 2.0);  // destructuring tuple assignment using let
+    let (add, mul) = add_mul(3.0, 2.0); // destructuring tuple assignment using let
 
     assert_eq!(tuple.0, "hello".to_string());
     assert_eq!(tuple.1, 5);
