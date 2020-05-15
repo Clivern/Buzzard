@@ -806,7 +806,7 @@ fn main() {
 
     let x_001 = String::from("hello");
 
-    takes_ownership(x_001.clone());
+    takes_ownership(x_001);
 
     //println!("{:?}", x_001); -> error value borrowed here after move into takes_ownership
 
