@@ -7,3 +7,4 @@ rules:
   MEMBER: 2
 - requiredLabels:
   - merge
+reportStatus: true
