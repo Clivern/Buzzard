@@ -4,9 +4,9 @@ RUSTUP ?= rustup
 
 help: Makefile
 	@echo
-	@echo " Choose a command run in Buzzard:"
+	@echo " Choose a command to run in Buzzard:"
 	@echo
-	@sed -n 's/^##//p' $< | column -t -s ':' |  sed -e 's/^/ /'
+	@sed -n 's/^##//p' $< | awk -F ':' '{printf "  %-25s %s\n", $$1, $$2}'
 	@echo
 
 
@@ -20,6 +20,14 @@ build:
 	@echo "\n>> ============= Cargo Build ============= <<"
 	rm -rf target
 	$(CARGO) build --verbose --all
+
+
+## version: Show version of cargo and rustup
+version:
+	@echo "\n>> ============= Cargo Version ============= <<"
+	$(CARGO) --version
+	@echo "\n>> ============= Rustup Version ============= <<"
+	$(RUSTUP) --version
 
 
 ## release: Build releases
@@ -56,6 +64,12 @@ run:
 ## ci: Run all CI tests.
 ci: build test fmt_check
 	@echo "\n>> ============= All quality checks passed ============= <<"
+
+
+## clean: Clean build artifacts
+clean:
+	@echo "\n>> ============= Cleaning build artifacts ============= <<"
+	rm -rf target
 
 
 .PHONY: help
