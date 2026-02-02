@@ -13,3 +13,7 @@ path = "001_hello/main.rs"
 [[bin]]
 name = "002_variables"
 path = "002_variables/main.rs"
+
+[[bin]]
+name = "003_mutability"
+path = "003_mutability/main.rs"
