@@ -9,3 +9,7 @@ publish = false
 [[bin]]
 name = "001_hello"
 path = "001_hello/main.rs"
+
+[[bin]]
+name = "002_variables"
+path = "002_variables/main.rs"
