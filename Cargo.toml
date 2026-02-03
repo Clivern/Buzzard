@@ -21,3 +21,7 @@ path = "003_mutability/main.rs"
 [[bin]]
 name = "004_constants"
 path = "004_constants/main.rs"
+
+[[bin]]
+name = "005_shadowing"
+path = "005_shadowing/main.rs"
