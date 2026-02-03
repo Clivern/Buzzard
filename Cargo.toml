@@ -25,3 +25,7 @@ path = "004_constants/main.rs"
 [[bin]]
 name = "005_shadowing"
 path = "005_shadowing/main.rs"
+
+[[bin]]
+name = "006_scalars"
+path = "006_scalars/main.rs"
