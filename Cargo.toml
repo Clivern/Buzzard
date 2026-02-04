@@ -41,3 +41,7 @@ path = "008_floats/main.rs"
 [[bin]]
 name = "009_bools"
 path = "009_bools/main.rs"
+
+[[bin]]
+name = "010_chars"
+path = "010_chars/main.rs"
