@@ -45,3 +45,7 @@ path = "009_bools/main.rs"
 [[bin]]
 name = "010_chars"
 path = "010_chars/main.rs"
+
+[[bin]]
+name = "011_tuples"
+path = "011_tuples/main.rs"
