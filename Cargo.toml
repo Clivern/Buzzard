@@ -33,3 +33,7 @@ path = "006_scalars/main.rs"
 [[bin]]
 name = "007_integers"
 path = "007_integers/main.rs"
+
+[[bin]]
+name = "008_floats"
+path = "008_floats/main.rs"
