@@ -53,3 +53,7 @@ path = "011_tuples/main.rs"
 [[bin]]
 name = "012_arrays"
 path = "012_arrays/main.rs"
+
+[[bin]]
+name = "013_operators"
+path = "013_operators/main.rs"
