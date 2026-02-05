@@ -5,6 +5,10 @@
 // char is a Unicode scalar value, written in single quotes, and is four bytes. A type
 // suffix like 10u8 pins the type when inference is not enough.
 //
+//
+// A char is not a single UTF-8 byte. Some glyphs need more than one char. len() on a
+// string counts bytes; chars().count() counts chars.
+//
 // Run: cargo run --bin 006_scalars
 
 fn main() {
@@ -15,4 +19,5 @@ fn main() {
     let letter: char = 'R';
     let snow: char = '☃';
     println!("{a} {b} {c} {ready} {letter} {snow}");
+    println!("byte len of snow {}", snow.len_utf8());
 }
