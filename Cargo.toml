@@ -49,3 +49,7 @@ path = "010_chars/main.rs"
 [[bin]]
 name = "011_tuples"
 path = "011_tuples/main.rs"
+
+[[bin]]
+name = "012_arrays"
+path = "012_arrays/main.rs"
