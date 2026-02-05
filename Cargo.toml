@@ -57,3 +57,7 @@ path = "012_arrays/main.rs"
 [[bin]]
 name = "013_operators"
 path = "013_operators/main.rs"
+
+[[bin]]
+name = "014_inference"
+path = "014_inference/main.rs"
