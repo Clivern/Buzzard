@@ -77,3 +77,7 @@ path = "017_parse/main.rs"
 [[bin]]
 name = "018_comments"
 path = "018_comments/main.rs"
+
+[[bin]]
+name = "019_print"
+path = "019_print/main.rs"
