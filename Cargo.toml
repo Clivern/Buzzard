@@ -73,3 +73,7 @@ path = "016_cast/main.rs"
 [[bin]]
 name = "017_parse"
 path = "017_parse/main.rs"
+
+[[bin]]
+name = "018_comments"
+path = "018_comments/main.rs"
