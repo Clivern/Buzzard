@@ -69,3 +69,7 @@ path = "015_aliases/main.rs"
 [[bin]]
 name = "016_cast"
 path = "016_cast/main.rs"
+
+[[bin]]
+name = "017_parse"
+path = "017_parse/main.rs"
