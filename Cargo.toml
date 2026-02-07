@@ -85,3 +85,7 @@ path = "019_print/main.rs"
 [[bin]]
 name = "020_debug"
 path = "020_debug/main.rs"
+
+[[bin]]
+name = "021_functions"
+path = "021_functions/main.rs"
