@@ -105,3 +105,7 @@ path = "024_expressions/main.rs"
 [[bin]]
 name = "025_diverging"
 path = "025_diverging/main.rs"
+
+[[bin]]
+name = "026_blocks"
+path = "026_blocks/main.rs"
