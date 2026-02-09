@@ -97,3 +97,7 @@ path = "022_params/main.rs"
 [[bin]]
 name = "023_returns"
 path = "023_returns/main.rs"
+
+[[bin]]
+name = "024_expressions"
+path = "024_expressions/main.rs"
