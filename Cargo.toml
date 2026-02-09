@@ -101,3 +101,7 @@ path = "023_returns/main.rs"
 [[bin]]
 name = "024_expressions"
 path = "024_expressions/main.rs"
+
+[[bin]]
+name = "025_diverging"
+path = "025_diverging/main.rs"
