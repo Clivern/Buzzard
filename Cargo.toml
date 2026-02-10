@@ -109,3 +109,7 @@ path = "025_diverging/main.rs"
 [[bin]]
 name = "026_blocks"
 path = "026_blocks/main.rs"
+
+[[bin]]
+name = "027_if_else"
+path = "027_if_else/main.rs"
