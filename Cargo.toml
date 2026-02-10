@@ -117,3 +117,7 @@ path = "027_if_else/main.rs"
 [[bin]]
 name = "028_loop"
 path = "028_loop/main.rs"
+
+[[bin]]
+name = "029_while"
+path = "029_while/main.rs"
