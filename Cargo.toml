@@ -113,3 +113,7 @@ path = "026_blocks/main.rs"
 [[bin]]
 name = "027_if_else"
 path = "027_if_else/main.rs"
+
+[[bin]]
+name = "028_loop"
+path = "028_loop/main.rs"
