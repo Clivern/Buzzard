@@ -141,3 +141,7 @@ path = "033_labels/main.rs"
 [[bin]]
 name = "034_match"
 path = "034_match/main.rs"
+
+[[bin]]
+name = "035_guards"
+path = "035_guards/main.rs"
