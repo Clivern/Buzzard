@@ -133,3 +133,7 @@ path = "031_for/main.rs"
 [[bin]]
 name = "032_range"
 path = "032_range/main.rs"
+
+[[bin]]
+name = "033_labels"
+path = "033_labels/main.rs"
