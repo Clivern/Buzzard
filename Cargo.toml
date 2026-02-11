@@ -129,3 +129,7 @@ path = "030_while_let/main.rs"
 [[bin]]
 name = "031_for"
 path = "031_for/main.rs"
+
+[[bin]]
+name = "032_range"
+path = "032_range/main.rs"
