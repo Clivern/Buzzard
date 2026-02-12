@@ -149,3 +149,7 @@ path = "035_guards/main.rs"
 [[bin]]
 name = "036_bindings"
 path = "036_bindings/main.rs"
+
+[[bin]]
+name = "037_if_let"
+path = "037_if_let/main.rs"
