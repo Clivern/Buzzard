@@ -157,3 +157,7 @@ path = "037_if_let/main.rs"
 [[bin]]
 name = "038_let_else"
 path = "038_let_else/main.rs"
+
+[[bin]]
+name = "039_ownership"
+path = "039_ownership/main.rs"
