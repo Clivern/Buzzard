@@ -169,3 +169,7 @@ path = "040_move/main.rs"
 [[bin]]
 name = "041_clone"
 path = "041_clone/main.rs"
+
+[[bin]]
+name = "042_copy"
+path = "042_copy/main.rs"
