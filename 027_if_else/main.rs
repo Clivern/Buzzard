@@ -4,6 +4,10 @@
 // block. else if chains extra tests. Because if is an expression, both branches must
 // have the same type when you assign the result.
 //
+//
+// An if expression used as a value must have the same type in every branch, including
+// else.
+//
 // Run: cargo run --bin 027_if_else
 
 fn main() {
@@ -18,4 +22,6 @@ fn main() {
 
     let parity = if n % 2 == 0 { "even" } else { "odd" };
     println!("{parity}");
+    let abs = if n < 0 { -n } else { n };
+    println!("abs {abs}");
 }
