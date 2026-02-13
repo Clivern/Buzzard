@@ -177,3 +177,7 @@ path = "042_copy/main.rs"
 [[bin]]
 name = "043_partial_move"
 path = "043_partial_move/main.rs"
+
+[[bin]]
+name = "044_refs"
+path = "044_refs/main.rs"
