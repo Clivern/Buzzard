@@ -185,3 +185,7 @@ path = "044_refs/main.rs"
 [[bin]]
 name = "045_mut_refs"
 path = "045_mut_refs/main.rs"
+
+[[bin]]
+name = "046_borrow"
+path = "046_borrow/main.rs"
