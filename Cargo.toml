@@ -193,3 +193,7 @@ path = "046_borrow/main.rs"
 [[bin]]
 name = "047_slices"
 path = "047_slices/main.rs"
+
+[[bin]]
+name = "048_str_slices"
+path = "048_str_slices/main.rs"
