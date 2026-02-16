@@ -205,3 +205,7 @@ path = "049_dangling/main.rs"
 [[bin]]
 name = "050_structs"
 path = "050_structs/main.rs"
+
+[[bin]]
+name = "051_update"
+path = "051_update/main.rs"
