@@ -201,3 +201,7 @@ path = "048_str_slices/main.rs"
 [[bin]]
 name = "049_dangling"
 path = "049_dangling/main.rs"
+
+[[bin]]
+name = "050_structs"
+path = "050_structs/main.rs"
