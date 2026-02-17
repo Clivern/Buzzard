@@ -217,3 +217,7 @@ path = "052_tuple_structs/main.rs"
 [[bin]]
 name = "053_unit_structs"
 path = "053_unit_structs/main.rs"
+
+[[bin]]
+name = "054_methods"
+path = "054_methods/main.rs"
