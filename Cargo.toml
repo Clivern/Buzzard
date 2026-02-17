@@ -221,3 +221,7 @@ path = "053_unit_structs/main.rs"
 [[bin]]
 name = "054_methods"
 path = "054_methods/main.rs"
+
+[[bin]]
+name = "055_associated"
+path = "055_associated/main.rs"
