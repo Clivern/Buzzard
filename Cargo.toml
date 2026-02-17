@@ -209,3 +209,7 @@ path = "050_structs/main.rs"
 [[bin]]
 name = "051_update"
 path = "051_update/main.rs"
+
+[[bin]]
+name = "052_tuple_structs"
+path = "052_tuple_structs/main.rs"
