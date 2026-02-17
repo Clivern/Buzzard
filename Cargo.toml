@@ -229,3 +229,7 @@ path = "055_associated/main.rs"
 [[bin]]
 name = "056_enums"
 path = "056_enums/main.rs"
+
+[[bin]]
+name = "057_enum_methods"
+path = "057_enum_methods/main.rs"
