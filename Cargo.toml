@@ -241,3 +241,7 @@ path = "058_option/main.rs"
 [[bin]]
 name = "059_result"
 path = "059_result/main.rs"
+
+[[bin]]
+name = "060_combinators"
+path = "060_combinators/main.rs"
