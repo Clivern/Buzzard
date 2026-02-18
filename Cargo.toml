@@ -237,3 +237,7 @@ path = "057_enum_methods/main.rs"
 [[bin]]
 name = "058_option"
 path = "058_option/main.rs"
+
+[[bin]]
+name = "059_result"
+path = "059_result/main.rs"
