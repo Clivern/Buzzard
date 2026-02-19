@@ -249,3 +249,7 @@ path = "060_combinators/main.rs"
 [[bin]]
 name = "061_result_map"
 path = "061_result_map/main.rs"
+
+[[bin]]
+name = "062_question"
+path = "062_question/main.rs"
