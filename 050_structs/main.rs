@@ -4,6 +4,10 @@
 // shorthand Point { x, y } uses local variables of the same name. A let struct starts
 // with every field at its value; there is no implicit zero. {:?} needs Debug.
 //
+//
+// Struct update and field shorthand keep constructors short. Debug is for developers;
+// add Display when users should see the value.
+//
 // Run: cargo run --bin 050_structs
 
 #[derive(Debug)]
@@ -18,4 +22,5 @@ fn main() {
     let mut a = Person { name, age };
     a.age = 37;
     println!("{a:?}");
+    println!("age {}", a.age);
 }
