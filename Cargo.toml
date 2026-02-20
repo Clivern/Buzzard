@@ -261,3 +261,7 @@ path = "063_unwrap/main.rs"
 [[bin]]
 name = "064_errors"
 path = "064_errors/main.rs"
+
+[[bin]]
+name = "065_panic"
+path = "065_panic/main.rs"
