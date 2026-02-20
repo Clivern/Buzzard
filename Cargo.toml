@@ -273,3 +273,7 @@ path = "066_from_into/main.rs"
 [[bin]]
 name = "067_tryfrom"
 path = "067_tryfrom/main.rs"
+
+[[bin]]
+name = "068_fromstr"
+path = "068_fromstr/main.rs"
