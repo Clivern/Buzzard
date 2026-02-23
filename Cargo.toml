@@ -285,3 +285,7 @@ path = "069_display/main.rs"
 [[bin]]
 name = "070_default"
 path = "070_default/main.rs"
+
+[[bin]]
+name = "071_eq_ord"
+path = "071_eq_ord/main.rs"
