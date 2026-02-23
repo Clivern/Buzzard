@@ -4,6 +4,10 @@
 // without handling None. unwrap panics on None; expect does too, with your message.
 // Prefer match, if let, or combinators in library code.
 //
+//
+// map turns Option<T> into Option<U> without an explicit match. It is the usual way to
+// transform a value that might be missing.
+//
 // Run: cargo run --bin 058_option
 
 fn find(nums: &[i32], target: i32) -> Option<usize> {
@@ -12,4 +16,5 @@ fn find(nums: &[i32], target: i32) -> Option<usize> {
 
 fn main() {
     println!("{:?} {:?}", find(&[1, 2, 3], 2), find(&[1, 2, 3], 9));
+    println!("{:?}", find(&[1, 2, 3], 2).map(|i| i + 1));
 }
