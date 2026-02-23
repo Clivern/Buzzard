@@ -289,3 +289,7 @@ path = "070_default/main.rs"
 [[bin]]
 name = "071_eq_ord"
 path = "071_eq_ord/main.rs"
+
+[[bin]]
+name = "072_hash"
+path = "072_hash/main.rs"
