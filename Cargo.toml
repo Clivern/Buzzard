@@ -293,3 +293,7 @@ path = "071_eq_ord/main.rs"
 [[bin]]
 name = "072_hash"
 path = "072_hash/main.rs"
+
+[[bin]]
+name = "073_drop"
+path = "073_drop/main.rs"
