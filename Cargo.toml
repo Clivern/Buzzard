@@ -297,3 +297,7 @@ path = "072_hash/main.rs"
 [[bin]]
 name = "073_drop"
 path = "073_drop/main.rs"
+
+[[bin]]
+name = "074_deref"
+path = "074_deref/main.rs"
