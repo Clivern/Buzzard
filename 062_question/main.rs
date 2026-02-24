@@ -4,6 +4,10 @@
 // From. ? on Option returns None early. The function's return type must be compatible.
 // main can return Result<(), Box<dyn Error>> so ? works at the top level.
 //
+//
+// ? also works on Option in a function that returns Option. It is the same early-return
+// idea as Result.
+//
 // Run: cargo run --bin 062_question
 
 use std::num::ParseIntError;
@@ -16,4 +20,5 @@ fn add_texts(a: &str, b: &str) -> Result<i32, ParseIntError> {
 
 fn main() {
     println!("{:?} {:?}", add_texts("2", "3"), add_texts("2", "x"));
+    println!("{:?}", add_texts("10", "5"));
 }
