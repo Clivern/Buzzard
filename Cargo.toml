@@ -305,3 +305,7 @@ path = "074_deref/main.rs"
 [[bin]]
 name = "075_asref"
 path = "075_asref/main.rs"
+
+[[bin]]
+name = "076_borrow_trait"
+path = "076_borrow_trait/main.rs"
