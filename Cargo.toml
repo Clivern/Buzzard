@@ -301,3 +301,7 @@ path = "073_drop/main.rs"
 [[bin]]
 name = "074_deref"
 path = "074_deref/main.rs"
+
+[[bin]]
+name = "075_asref"
+path = "075_asref/main.rs"
