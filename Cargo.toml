@@ -317,3 +317,7 @@ path = "077_cow/main.rs"
 [[bin]]
 name = "078_generics"
 path = "078_generics/main.rs"
+
+[[bin]]
+name = "079_generic_structs"
+path = "079_generic_structs/main.rs"
