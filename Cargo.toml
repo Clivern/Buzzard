@@ -325,3 +325,7 @@ path = "079_generic_structs/main.rs"
 [[bin]]
 name = "080_generic_enums"
 path = "080_generic_enums/main.rs"
+
+[[bin]]
+name = "081_bounds"
+path = "081_bounds/main.rs"
