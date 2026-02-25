@@ -333,3 +333,7 @@ path = "081_bounds/main.rs"
 [[bin]]
 name = "082_impl_trait"
 path = "082_impl_trait/main.rs"
+
+[[bin]]
+name = "083_dyn_trait"
+path = "083_dyn_trait/main.rs"
