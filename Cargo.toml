@@ -329,3 +329,7 @@ path = "080_generic_enums/main.rs"
 [[bin]]
 name = "081_bounds"
 path = "081_bounds/main.rs"
+
+[[bin]]
+name = "082_impl_trait"
+path = "082_impl_trait/main.rs"
