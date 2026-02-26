@@ -345,3 +345,7 @@ path = "084_traits/main.rs"
 [[bin]]
 name = "085_default_methods"
 path = "085_default_methods/main.rs"
+
+[[bin]]
+name = "086_derive"
+path = "086_derive/main.rs"
