@@ -5,6 +5,10 @@
 // compiler monomorphizes: each concrete type gets its own copy of the function, so
 // generics are as fast as hand-written code.
 //
+//
+// Turbofish ::<T> pins a type parameter when the compiler cannot infer it, especially on
+// empty collections.
+//
 // Run: cargo run --bin 078_generics
 
 fn first<T: Clone>(items: &[T]) -> Option<T> {
@@ -13,4 +17,5 @@ fn first<T: Clone>(items: &[T]) -> Option<T> {
 
 fn main() {
     println!("{:?} {:?}", first(&["a", "b"]), first::<i32>(&[]));
+    println!("{:?}", first::<&str>(&[]));
 }
