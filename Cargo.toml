@@ -353,3 +353,7 @@ path = "086_derive/main.rs"
 [[bin]]
 name = "087_supertraits"
 path = "087_supertraits/main.rs"
+
+[[bin]]
+name = "088_associated_types"
+path = "088_associated_types/main.rs"
