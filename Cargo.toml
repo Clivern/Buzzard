@@ -365,3 +365,7 @@ path = "089_newtype/main.rs"
 [[bin]]
 name = "090_extension"
 path = "090_extension/main.rs"
+
+[[bin]]
+name = "091_iterators"
+path = "091_iterators/main.rs"
