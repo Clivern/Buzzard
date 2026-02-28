@@ -373,3 +373,7 @@ path = "091_iterators/main.rs"
 [[bin]]
 name = "092_into_iter"
 path = "092_into_iter/main.rs"
+
+[[bin]]
+name = "093_adapters"
+path = "093_adapters/main.rs"
