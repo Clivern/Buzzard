@@ -369,3 +369,7 @@ path = "090_extension/main.rs"
 [[bin]]
 name = "091_iterators"
 path = "091_iterators/main.rs"
+
+[[bin]]
+name = "092_into_iter"
+path = "092_into_iter/main.rs"
