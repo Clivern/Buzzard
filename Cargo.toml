@@ -377,3 +377,7 @@ path = "092_into_iter/main.rs"
 [[bin]]
 name = "093_adapters"
 path = "093_adapters/main.rs"
+
+[[bin]]
+name = "094_collect"
+path = "094_collect/main.rs"
