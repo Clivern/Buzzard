@@ -381,3 +381,7 @@ path = "093_adapters/main.rs"
 [[bin]]
 name = "094_collect"
 path = "094_collect/main.rs"
+
+[[bin]]
+name = "095_fold"
+path = "095_fold/main.rs"
