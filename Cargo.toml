@@ -389,3 +389,7 @@ path = "095_fold/main.rs"
 [[bin]]
 name = "096_closures"
 path = "096_closures/main.rs"
+
+[[bin]]
+name = "097_capture"
+path = "097_capture/main.rs"
