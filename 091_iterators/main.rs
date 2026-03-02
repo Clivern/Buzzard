@@ -4,6 +4,10 @@
 // iter() borrows items. iter_mut() borrows mutably. into_iter() moves items out. The
 // Iterator trait has dozens of adapters built from next.
 //
+//
+// count consumes the iterator and returns how many items were left. After count, you
+// cannot use it again.
+//
 // Run: cargo run --bin 091_iterators
 
 fn main() {
@@ -11,4 +15,5 @@ fn main() {
     let mut it = v.iter();
     println!("{:?} {:?} {:?}", it.next(), it.next(), it.next());
     println!("{:?}", it.next());
+    println!("left {}", [1, 2, 3].iter().count());
 }
