@@ -397,3 +397,7 @@ path = "097_capture/main.rs"
 [[bin]]
 name = "098_fn_traits"
 path = "098_fn_traits/main.rs"
+
+[[bin]]
+name = "099_lifetimes"
+path = "099_lifetimes/main.rs"
