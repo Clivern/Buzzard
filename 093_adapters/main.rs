@@ -4,6 +4,10 @@
 // until you consume the iterator. collect, for, count, sum, fold consume it. Chain
 // adapters to describe the work, then collect once.
 //
+//
+// inspect is lazy too: it only prints when a later consumer pulls an item. That is why
+// adapters can be stacked cheaply.
+//
 // Run: cargo run --bin 093_adapters
 
 fn main() {
@@ -13,4 +17,6 @@ fn main() {
         .take(3)
         .collect();
     println!("{v:?}");
+    let n: i32 = (1..5).filter(|n| *n > 1).sum();
+    println!("sum {n}");
 }
