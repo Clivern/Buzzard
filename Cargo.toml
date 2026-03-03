@@ -409,3 +409,7 @@ path = "100_lifetime_structs/main.rs"
 [[bin]]
 name = "101_elision"
 path = "101_elision/main.rs"
+
+[[bin]]
+name = "102_static"
+path = "102_static/main.rs"
