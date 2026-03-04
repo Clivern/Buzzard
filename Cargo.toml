@@ -417,3 +417,7 @@ path = "102_static/main.rs"
 [[bin]]
 name = "103_lifetime_bounds"
 path = "103_lifetime_bounds/main.rs"
+
+[[bin]]
+name = "104_vec"
+path = "104_vec/main.rs"
