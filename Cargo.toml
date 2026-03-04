@@ -413,3 +413,7 @@ path = "101_elision/main.rs"
 [[bin]]
 name = "102_static"
 path = "102_static/main.rs"
+
+[[bin]]
+name = "103_lifetime_bounds"
+path = "103_lifetime_bounds/main.rs"
