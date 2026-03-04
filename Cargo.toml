@@ -425,3 +425,7 @@ path = "104_vec/main.rs"
 [[bin]]
 name = "105_vec_extra"
 path = "105_vec_extra/main.rs"
+
+[[bin]]
+name = "106_hashmap"
+path = "106_hashmap/main.rs"
