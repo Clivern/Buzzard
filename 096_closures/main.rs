@@ -4,6 +4,10 @@
 // short form. The compiler infers parameter and return types when it can. Closures can
 // be stored, passed, and returned (with impl Fn).
 //
+//
+// A closure can be stored in a variable and called later. The compiler builds an
+// anonymous struct that holds the captures.
+//
 // Run: cargo run --bin 096_closures
 
 fn main() {
@@ -12,4 +16,6 @@ fn main() {
     let factor = 10;
     let scale = |n| n * factor;
     println!("{}", scale(4));
+    let greet = |name: &str| format!("hi {name}");
+    println!("{}", greet("Ada"));
 }
