@@ -461,3 +461,7 @@ path = "113_linkedlist/main.rs"
 [[bin]]
 name = "114_sort"
 path = "114_sort/main.rs"
+
+[[bin]]
+name = "115_binary_search"
+path = "115_binary_search/main.rs"
