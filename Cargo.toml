@@ -449,3 +449,7 @@ path = "110_btreeset/main.rs"
 [[bin]]
 name = "111_vecdeque"
 path = "111_vecdeque/main.rs"
+
+[[bin]]
+name = "112_binaryheap"
+path = "112_binaryheap/main.rs"
