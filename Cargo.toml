@@ -453,3 +453,7 @@ path = "111_vecdeque/main.rs"
 [[bin]]
 name = "112_binaryheap"
 path = "112_binaryheap/main.rs"
+
+[[bin]]
+name = "113_linkedlist"
+path = "113_linkedlist/main.rs"
