@@ -445,3 +445,7 @@ path = "109_btreemap/main.rs"
 [[bin]]
 name = "110_btreeset"
 path = "110_btreeset/main.rs"
+
+[[bin]]
+name = "111_vecdeque"
+path = "111_vecdeque/main.rs"
