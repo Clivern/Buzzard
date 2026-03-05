@@ -4,6 +4,10 @@
 // len and capacity are separate: capacity is heap room already reserved. with_capacity
 // avoids extra allocations. Indexing panics; get returns Option.
 //
+//
+// get returns None instead of panicking. Use it when the index comes from outside the
+// program.
+//
 // Run: cargo run --bin 104_vec
 
 fn main() {
@@ -13,4 +17,5 @@ fn main() {
     v.push(3);
     println!("len {} cap {} {:?}", v.len(), v.capacity(), v.get(9));
     println!("{:?}", v.pop());
+    println!("first {:?}", v.first());
 }
