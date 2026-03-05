@@ -441,3 +441,7 @@ path = "108_hashset/main.rs"
 [[bin]]
 name = "109_btreemap"
 path = "109_btreemap/main.rs"
+
+[[bin]]
+name = "110_btreeset"
+path = "110_btreeset/main.rs"
