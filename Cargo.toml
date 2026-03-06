@@ -465,3 +465,7 @@ path = "114_sort/main.rs"
 [[bin]]
 name = "115_binary_search"
 path = "115_binary_search/main.rs"
+
+[[bin]]
+name = "116_box_ptr"
+path = "116_box_ptr/main.rs"
