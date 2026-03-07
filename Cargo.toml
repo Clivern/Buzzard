@@ -481,3 +481,7 @@ path = "118_weak/main.rs"
 [[bin]]
 name = "119_cell"
 path = "119_cell/main.rs"
+
+[[bin]]
+name = "120_refcell"
+path = "120_refcell/main.rs"
