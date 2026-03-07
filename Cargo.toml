@@ -485,3 +485,7 @@ path = "119_cell/main.rs"
 [[bin]]
 name = "120_refcell"
 path = "120_refcell/main.rs"
+
+[[bin]]
+name = "121_interior"
+path = "121_interior/main.rs"
