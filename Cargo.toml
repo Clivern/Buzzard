@@ -473,3 +473,7 @@ path = "116_box_ptr/main.rs"
 [[bin]]
 name = "117_rc"
 path = "117_rc/main.rs"
+
+[[bin]]
+name = "118_weak"
+path = "118_weak/main.rs"
