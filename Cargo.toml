@@ -505,3 +505,7 @@ path = "124_rwlock/main.rs"
 [[bin]]
 name = "125_once_lock"
 path = "125_once_lock/main.rs"
+
+[[bin]]
+name = "126_threads"
+path = "126_threads/main.rs"
