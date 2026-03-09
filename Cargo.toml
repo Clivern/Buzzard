@@ -493,3 +493,7 @@ path = "121_interior/main.rs"
 [[bin]]
 name = "122_arc"
 path = "122_arc/main.rs"
+
+[[bin]]
+name = "123_mutex"
+path = "123_mutex/main.rs"
