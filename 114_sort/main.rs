@@ -4,6 +4,10 @@
 // sort_unstable is faster and may reorder equal items. binary_search finds an index in a
 // sorted slice. Reverse wraps a key for descending order.
 //
+//
+// is_sorted reports whether the slice is already in order. binary_search needs that to
+// be true.
+//
 // Run: cargo run --bin 114_sort
 
 use std::cmp::Reverse;
@@ -17,4 +21,5 @@ fn main() {
     println!("{pairs:?}");
     pairs.sort_by_key(|p| Reverse(p.1));
     println!("{pairs:?}");
+    println!("sorted {}", names.is_sorted());
 }
