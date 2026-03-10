@@ -525,3 +525,7 @@ path = "129_mpsc/main.rs"
 [[bin]]
 name = "130_multi_tx"
 path = "130_multi_tx/main.rs"
+
+[[bin]]
+name = "131_sync_channel"
+path = "131_sync_channel/main.rs"
