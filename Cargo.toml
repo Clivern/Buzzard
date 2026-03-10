@@ -513,3 +513,7 @@ path = "126_threads/main.rs"
 [[bin]]
 name = "127_move_thread"
 path = "127_move_thread/main.rs"
+
+[[bin]]
+name = "128_builder"
+path = "128_builder/main.rs"
