@@ -533,3 +533,7 @@ path = "131_sync_channel/main.rs"
 [[bin]]
 name = "132_try_recv"
 path = "132_try_recv/main.rs"
+
+[[bin]]
+name = "133_scoped"
+path = "133_scoped/main.rs"
