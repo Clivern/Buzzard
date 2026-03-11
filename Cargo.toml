@@ -529,3 +529,7 @@ path = "130_multi_tx/main.rs"
 [[bin]]
 name = "131_sync_channel"
 path = "131_sync_channel/main.rs"
+
+[[bin]]
+name = "132_try_recv"
+path = "132_try_recv/main.rs"
