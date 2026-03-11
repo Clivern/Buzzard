@@ -541,3 +541,7 @@ path = "133_scoped/main.rs"
 [[bin]]
 name = "134_atomics"
 path = "134_atomics/main.rs"
+
+[[bin]]
+name = "135_send_sync"
+path = "135_send_sync/main.rs"
