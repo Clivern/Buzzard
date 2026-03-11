@@ -4,6 +4,10 @@
 // to T and unlocks on drop. If a thread panics while holding the lock, the mutex is
 // poisoned: lock() returns Err. unwrap that unless you have a recovery plan.
 //
+//
+// The guard's lifetime is the critical section. Drop it before join if you do not want
+// to hold the lock while waiting.
+//
 // Run: cargo run --bin 123_mutex
 
 use std::sync::{Arc, Mutex};
@@ -22,4 +26,5 @@ fn main() {
         h.join().unwrap();
     }
     println!("{}", n.lock().unwrap());
+    println!("done");
 }
