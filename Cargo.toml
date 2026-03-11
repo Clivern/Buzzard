@@ -549,3 +549,7 @@ path = "135_send_sync/main.rs"
 [[bin]]
 name = "136_files"
 path = "136_files/main.rs"
+
+[[bin]]
+name = "137_bufreader"
+path = "137_bufreader/main.rs"
