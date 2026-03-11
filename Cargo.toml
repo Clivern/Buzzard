@@ -537,3 +537,7 @@ path = "132_try_recv/main.rs"
 [[bin]]
 name = "133_scoped"
 path = "133_scoped/main.rs"
+
+[[bin]]
+name = "134_atomics"
+path = "134_atomics/main.rs"
