@@ -553,3 +553,7 @@ path = "136_files/main.rs"
 [[bin]]
 name = "137_bufreader"
 path = "137_bufreader/main.rs"
+
+[[bin]]
+name = "138_path"
+path = "138_path/main.rs"
