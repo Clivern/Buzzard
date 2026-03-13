@@ -561,3 +561,7 @@ path = "138_path/main.rs"
 [[bin]]
 name = "139_env"
 path = "139_env/main.rs"
+
+[[bin]]
+name = "140_args"
+path = "140_args/main.rs"
