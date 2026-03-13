@@ -557,3 +557,7 @@ path = "137_bufreader/main.rs"
 [[bin]]
 name = "138_path"
 path = "138_path/main.rs"
+
+[[bin]]
+name = "139_env"
+path = "139_env/main.rs"
