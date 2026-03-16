@@ -593,3 +593,7 @@ path = "146_systemtime/main.rs"
 [[bin]]
 name = "147_sleep"
 path = "147_sleep/main.rs"
+
+[[bin]]
+name = "148_strings"
+path = "148_strings/main.rs"
