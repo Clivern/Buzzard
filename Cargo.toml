@@ -573,3 +573,7 @@ path = "141_command/main.rs"
 [[bin]]
 name = "142_stdin"
 path = "142_stdin/main.rs"
+
+[[bin]]
+name = "143_include"
+path = "143_include/main.rs"
