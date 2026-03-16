@@ -585,3 +585,7 @@ path = "144_duration/main.rs"
 [[bin]]
 name = "145_instant"
 path = "145_instant/main.rs"
+
+[[bin]]
+name = "146_systemtime"
+path = "146_systemtime/main.rs"
