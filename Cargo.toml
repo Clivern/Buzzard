@@ -577,3 +577,7 @@ path = "142_stdin/main.rs"
 [[bin]]
 name = "143_include"
 path = "143_include/main.rs"
+
+[[bin]]
+name = "144_duration"
+path = "144_duration/main.rs"
