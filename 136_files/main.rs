@@ -4,6 +4,10 @@
 // std::fs::read reads a whole file into Vec<u8>. std::fs::read_to_string reads UTF-8.
 // Always handle the io::Error. tempfile-like names can use env::temp_dir.
 //
+//
+// write writes bytes. Write::write_all retries until the whole buffer is written or an
+// error is returned.
+//
 // Run: cargo run --bin 136_files
 
 use std::fs;
@@ -19,4 +23,5 @@ fn main() {
     let s = fs::read_to_string(&path).unwrap();
     println!("{s}");
     fs::remove_file(&path).unwrap();
+    println!("wrote {} bytes", b"hello file\n".len());
 }
