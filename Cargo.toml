@@ -617,3 +617,7 @@ path = "152_fmt_extras/main.rs"
 [[bin]]
 name = "153_modules"
 path = "153_modules/main.rs"
+
+[[bin]]
+name = "154_use_paths"
+path = "154_use_paths/main.rs"
