@@ -4,6 +4,10 @@
 // text work. String is UTF-8. Indexing with a byte range is allowed; indexing a single
 // byte as a char is not. split returns an iterator.
 //
+//
+// is_empty and len are byte length. chars().count() is the number of Unicode scalar
+// values, which is still not graphemes.
+//
 // Run: cargo run --bin 148_strings
 
 fn main() {
@@ -12,4 +16,5 @@ fn main() {
     println!("{}", s.trim().to_lowercase());
     println!("{:?}", "a,b,c".split(',').collect::<Vec<_>>());
     println!("{}", "hello".replace("l", "r"));
+    println!("chars {}", "hello".chars().count());
 }
