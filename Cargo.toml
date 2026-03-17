@@ -597,3 +597,7 @@ path = "147_sleep/main.rs"
 [[bin]]
 name = "148_strings"
 path = "148_strings/main.rs"
+
+[[bin]]
+name = "149_osstr"
+path = "149_osstr/main.rs"
