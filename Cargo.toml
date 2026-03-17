@@ -601,3 +601,7 @@ path = "148_strings/main.rs"
 [[bin]]
 name = "149_osstr"
 path = "149_osstr/main.rs"
+
+[[bin]]
+name = "150_mem"
+path = "150_mem/main.rs"
