@@ -633,3 +633,7 @@ path = "156_cfg/main.rs"
 [[bin]]
 name = "157_tests"
 path = "157_tests/main.rs"
+
+[[bin]]
+name = "158_doc_comments"
+path = "158_doc_comments/main.rs"
