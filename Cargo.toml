@@ -645,3 +645,7 @@ path = "159_macros/main.rs"
 [[bin]]
 name = "160_macro_repeat"
 path = "160_macro_repeat/main.rs"
+
+[[bin]]
+name = "161_todo"
+path = "161_todo/main.rs"
