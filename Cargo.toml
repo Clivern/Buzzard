@@ -637,3 +637,7 @@ path = "157_tests/main.rs"
 [[bin]]
 name = "158_doc_comments"
 path = "158_doc_comments/main.rs"
+
+[[bin]]
+name = "159_macros"
+path = "159_macros/main.rs"
