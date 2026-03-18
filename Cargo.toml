@@ -629,3 +629,7 @@ path = "155_visibility/main.rs"
 [[bin]]
 name = "156_cfg"
 path = "156_cfg/main.rs"
+
+[[bin]]
+name = "157_tests"
+path = "157_tests/main.rs"
