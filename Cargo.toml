@@ -653,3 +653,7 @@ path = "161_todo/main.rs"
 [[bin]]
 name = "162_assert"
 path = "162_assert/main.rs"
+
+[[bin]]
+name = "163_const_fn"
+path = "163_const_fn/main.rs"
