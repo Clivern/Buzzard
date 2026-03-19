@@ -4,6 +4,10 @@
 // cargo test --bin 157_tests runs tests in this binary. #[should_panic] expects a panic.
 // Tests in tests/ at the crate root are integration tests.
 //
+//
+// assert_ne! is the opposite of assert_eq!. Extra cases in the same module keep the
+// lesson's tests in one place.
+//
 // Run: cargo run --bin 157_tests
 
 fn sum(nums: &[i32]) -> i32 {
@@ -26,5 +30,9 @@ mod tests {
     #[test]
     fn some() {
         assert_eq!(sum(&[1, 2, 3]), 6);
+    }
+    #[test]
+    fn nonempty() {
+        assert_ne!(sum(&[1]), 0);
     }
 }
