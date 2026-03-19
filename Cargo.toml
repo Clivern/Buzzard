@@ -661,3 +661,7 @@ path = "163_const_fn/main.rs"
 [[bin]]
 name = "164_const_generics"
 path = "164_const_generics/main.rs"
+
+[[bin]]
+name = "165_static_vs_const"
+path = "165_static_vs_const/main.rs"
