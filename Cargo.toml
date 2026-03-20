@@ -677,3 +677,7 @@ path = "167_slice_patterns/main.rs"
 [[bin]]
 name = "168_or_patterns"
 path = "168_or_patterns/main.rs"
+
+[[bin]]
+name = "169_range_patterns"
+path = "169_range_patterns/main.rs"
