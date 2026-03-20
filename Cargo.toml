@@ -681,3 +681,7 @@ path = "168_or_patterns/main.rs"
 [[bin]]
 name = "169_range_patterns"
 path = "169_range_patterns/main.rs"
+
+[[bin]]
+name = "170_ref_patterns"
+path = "170_ref_patterns/main.rs"
