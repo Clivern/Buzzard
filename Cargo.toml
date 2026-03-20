@@ -673,3 +673,7 @@ path = "166_matches/main.rs"
 [[bin]]
 name = "167_slice_patterns"
 path = "167_slice_patterns/main.rs"
+
+[[bin]]
+name = "168_or_patterns"
+path = "168_or_patterns/main.rs"
