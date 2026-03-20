@@ -669,3 +669,7 @@ path = "165_static_vs_const/main.rs"
 [[bin]]
 name = "166_matches"
 path = "166_matches/main.rs"
+
+[[bin]]
+name = "167_slice_patterns"
+path = "167_slice_patterns/main.rs"
