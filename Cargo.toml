@@ -689,3 +689,7 @@ path = "170_ref_patterns/main.rs"
 [[bin]]
 name = "171_phantom"
 path = "171_phantom/main.rs"
+
+[[bin]]
+name = "172_sized"
+path = "172_sized/main.rs"
