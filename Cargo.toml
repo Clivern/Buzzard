@@ -705,3 +705,7 @@ path = "174_index/main.rs"
 [[bin]]
 name = "175_from_fn"
 path = "175_from_fn/main.rs"
+
+[[bin]]
+name = "176_once_repeat"
+path = "176_once_repeat/main.rs"
