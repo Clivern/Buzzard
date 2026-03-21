@@ -697,3 +697,7 @@ path = "172_sized/main.rs"
 [[bin]]
 name = "173_ops"
 path = "173_ops/main.rs"
+
+[[bin]]
+name = "174_index"
+path = "174_index/main.rs"
