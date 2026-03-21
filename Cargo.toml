@@ -701,3 +701,7 @@ path = "173_ops/main.rs"
 [[bin]]
 name = "174_index"
 path = "174_index/main.rs"
+
+[[bin]]
+name = "175_from_fn"
+path = "175_from_fn/main.rs"
