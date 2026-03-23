@@ -721,3 +721,7 @@ path = "178_cycle_zip/main.rs"
 [[bin]]
 name = "179_inspect"
 path = "179_inspect/main.rs"
+
+[[bin]]
+name = "180_fs_dir"
+path = "180_fs_dir/main.rs"
