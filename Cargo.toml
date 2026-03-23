@@ -717,3 +717,7 @@ path = "177_peekable/main.rs"
 [[bin]]
 name = "178_cycle_zip"
 path = "178_cycle_zip/main.rs"
+
+[[bin]]
+name = "179_inspect"
+path = "179_inspect/main.rs"
