@@ -729,3 +729,7 @@ path = "180_fs_dir/main.rs"
 [[bin]]
 name = "181_metadata"
 path = "181_metadata/main.rs"
+
+[[bin]]
+name = "182_cursor"
+path = "182_cursor/main.rs"
