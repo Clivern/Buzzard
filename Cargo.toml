@@ -713,3 +713,7 @@ path = "176_once_repeat/main.rs"
 [[bin]]
 name = "177_peekable"
 path = "177_peekable/main.rs"
+
+[[bin]]
+name = "178_cycle_zip"
+path = "178_cycle_zip/main.rs"
