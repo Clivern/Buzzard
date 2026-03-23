@@ -709,3 +709,7 @@ path = "175_from_fn/main.rs"
 [[bin]]
 name = "176_once_repeat"
 path = "176_once_repeat/main.rs"
+
+[[bin]]
+name = "177_peekable"
+path = "177_peekable/main.rs"
