@@ -733,3 +733,7 @@ path = "181_metadata/main.rs"
 [[bin]]
 name = "182_cursor"
 path = "182_cursor/main.rs"
+
+[[bin]]
+name = "183_error_chain"
+path = "183_error_chain/main.rs"
