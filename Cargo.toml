@@ -745,3 +745,7 @@ path = "184_any/main.rs"
 [[bin]]
 name = "185_type_name"
 path = "185_type_name/main.rs"
+
+[[bin]]
+name = "186_async_intro"
+path = "186_async_intro/main.rs"
