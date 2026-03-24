@@ -753,3 +753,7 @@ path = "186_async_intro/main.rs"
 [[bin]]
 name = "187_future_trait"
 path = "187_future_trait/main.rs"
+
+[[bin]]
+name = "188_pin_intro"
+path = "188_pin_intro/main.rs"
