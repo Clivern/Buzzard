@@ -761,3 +761,7 @@ path = "188_pin_intro/main.rs"
 [[bin]]
 name = "189_unsafe_intro"
 path = "189_unsafe_intro/main.rs"
+
+[[bin]]
+name = "190_raw_pointers"
+path = "190_raw_pointers/main.rs"
