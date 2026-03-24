@@ -749,3 +749,7 @@ path = "185_type_name/main.rs"
 [[bin]]
 name = "186_async_intro"
 path = "186_async_intro/main.rs"
+
+[[bin]]
+name = "187_future_trait"
+path = "187_future_trait/main.rs"
