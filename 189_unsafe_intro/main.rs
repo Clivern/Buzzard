@@ -5,6 +5,10 @@
 // checker for safe references. Keep unsafe blocks tiny and write a Safety comment that
 // lists the invariants you upheld.
 //
+//
+// Keep the unsafe block to the actual dereference. Building the pointer from a reference
+// is safe and does not need the keyword.
+//
 // Run: cargo run --bin 189_unsafe_intro
 
 fn main() {
@@ -15,4 +19,5 @@ fn main() {
         *p
     };
     println!("{v}");
+    println!("ptr {:p}", p);
 }
