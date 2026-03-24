@@ -741,3 +741,7 @@ path = "183_error_chain/main.rs"
 [[bin]]
 name = "184_any"
 path = "184_any/main.rs"
+
+[[bin]]
+name = "185_type_name"
+path = "185_type_name/main.rs"
