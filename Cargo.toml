@@ -769,3 +769,7 @@ path = "190_raw_pointers/main.rs"
 [[bin]]
 name = "191_extern"
 path = "191_extern/main.rs"
+
+[[bin]]
+name = "192_repr"
+path = "192_repr/main.rs"
