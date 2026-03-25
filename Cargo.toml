@@ -773,3 +773,7 @@ path = "191_extern/main.rs"
 [[bin]]
 name = "192_repr"
 path = "192_repr/main.rs"
+
+[[bin]]
+name = "193_maybe_uninit"
+path = "193_maybe_uninit/main.rs"
