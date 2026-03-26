@@ -785,3 +785,7 @@ path = "194_manuallydrop/main.rs"
 [[bin]]
 name = "195_nonzero"
 path = "195_nonzero/main.rs"
+
+[[bin]]
+name = "196_wrapping"
+path = "196_wrapping/main.rs"
