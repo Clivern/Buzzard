@@ -789,3 +789,7 @@ path = "195_nonzero/main.rs"
 [[bin]]
 name = "196_wrapping"
 path = "196_wrapping/main.rs"
+
+[[bin]]
+name = "197_cell_once"
+path = "197_cell_once/main.rs"
