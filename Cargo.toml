@@ -793,3 +793,7 @@ path = "196_wrapping/main.rs"
 [[bin]]
 name = "197_cell_once"
 path = "197_cell_once/main.rs"
+
+[[bin]]
+name = "198_lazy_lock"
+path = "198_lazy_lock/main.rs"
