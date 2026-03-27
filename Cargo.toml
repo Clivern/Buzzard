@@ -801,3 +801,7 @@ path = "198_lazy_lock/main.rs"
 [[bin]]
 name = "199_condvar"
 path = "199_condvar/main.rs"
+
+[[bin]]
+name = "200_barrier"
+path = "200_barrier/main.rs"
