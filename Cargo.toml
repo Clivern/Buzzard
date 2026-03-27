@@ -797,3 +797,7 @@ path = "197_cell_once/main.rs"
 [[bin]]
 name = "198_lazy_lock"
 path = "198_lazy_lock/main.rs"
+
+[[bin]]
+name = "199_condvar"
+path = "199_condvar/main.rs"
