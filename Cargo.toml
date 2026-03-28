@@ -805,3 +805,7 @@ path = "199_condvar/main.rs"
 [[bin]]
 name = "200_barrier"
 path = "200_barrier/main.rs"
+
+[[bin]]
+name = "201_thread_local"
+path = "201_thread_local/main.rs"
