@@ -809,3 +809,7 @@ path = "200_barrier/main.rs"
 [[bin]]
 name = "201_thread_local"
 path = "201_thread_local/main.rs"
+
+[[bin]]
+name = "202_parking"
+path = "202_parking/main.rs"
