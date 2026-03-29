@@ -813,3 +813,7 @@ path = "201_thread_local/main.rs"
 [[bin]]
 name = "202_parking"
 path = "202_parking/main.rs"
+
+[[bin]]
+name = "203_process_exit"
+path = "203_process_exit/main.rs"
