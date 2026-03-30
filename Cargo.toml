@@ -829,3 +829,7 @@ path = "205_read_write_trait/main.rs"
 [[bin]]
 name = "206_seek"
 path = "206_seek/main.rs"
+
+[[bin]]
+name = "207_bytes_str"
+path = "207_bytes_str/main.rs"
