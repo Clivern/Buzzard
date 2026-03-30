@@ -821,3 +821,7 @@ path = "203_process_exit/main.rs"
 [[bin]]
 name = "204_env_current"
 path = "204_env_current/main.rs"
+
+[[bin]]
+name = "205_read_write_trait"
+path = "205_read_write_trait/main.rs"
