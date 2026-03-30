@@ -817,3 +817,7 @@ path = "202_parking/main.rs"
 [[bin]]
 name = "203_process_exit"
 path = "203_process_exit/main.rs"
+
+[[bin]]
+name = "204_env_current"
+path = "204_env_current/main.rs"
