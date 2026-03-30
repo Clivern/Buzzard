@@ -825,3 +825,7 @@ path = "204_env_current/main.rs"
 [[bin]]
 name = "205_read_write_trait"
 path = "205_read_write_trait/main.rs"
+
+[[bin]]
+name = "206_seek"
+path = "206_seek/main.rs"
