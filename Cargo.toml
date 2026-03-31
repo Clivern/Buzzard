@@ -841,3 +841,7 @@ path = "208_cow_str/main.rs"
 [[bin]]
 name = "209_iter_collect_map"
 path = "209_iter_collect_map/main.rs"
+
+[[bin]]
+name = "210_workspace_note"
+path = "210_workspace_note/main.rs"
