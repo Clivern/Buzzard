@@ -837,3 +837,7 @@ path = "207_bytes_str/main.rs"
 [[bin]]
 name = "208_cow_str"
 path = "208_cow_str/main.rs"
+
+[[bin]]
+name = "209_iter_collect_map"
+path = "209_iter_collect_map/main.rs"
