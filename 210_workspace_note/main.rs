@@ -5,8 +5,13 @@
 // tests in that file. rustfmt.toml at the repo root sets max_width. Add a crate under
 // [dependencies] when you outgrow std.
 //
+//
+// cargo check --bin 210_workspace_note type-checks without producing a runnable binary
+// as quickly as cargo build.
+//
 // Run: cargo run --bin 210_workspace_note
 
 fn main() {
     println!("cargo run --bin 210_workspace_note");
+    println!("cargo check --bin 210_workspace_note");
 }
