@@ -7,841 +7,241 @@ publish = false
 [dependencies]
 
 [[bin]]
-name = "001_hello"
-path = "001_hello/main.rs"
+name = "01_print_format"
+path = "01_print_format/main.rs"
 
 [[bin]]
-name = "002_variables"
-path = "002_variables/main.rs"
+name = "02_variables"
+path = "02_variables/main.rs"
 
 [[bin]]
-name = "003_mutability"
-path = "003_mutability/main.rs"
+name = "03_scalars"
+path = "03_scalars/main.rs"
 
 [[bin]]
-name = "004_constants"
-path = "004_constants/main.rs"
+name = "04_tuples_arrays"
+path = "04_tuples_arrays/main.rs"
 
 [[bin]]
-name = "005_shadowing"
-path = "005_shadowing/main.rs"
+name = "05_operators_casts"
+path = "05_operators_casts/main.rs"
 
 [[bin]]
-name = "006_scalars"
-path = "006_scalars/main.rs"
+name = "06_functions"
+path = "06_functions/main.rs"
 
 [[bin]]
-name = "007_integers"
-path = "007_integers/main.rs"
+name = "07_control_flow"
+path = "07_control_flow/main.rs"
 
 [[bin]]
-name = "008_floats"
-path = "008_floats/main.rs"
+name = "08_match"
+path = "08_match/main.rs"
 
 [[bin]]
-name = "009_bools"
-path = "009_bools/main.rs"
+name = "09_patterns"
+path = "09_patterns/main.rs"
 
 [[bin]]
-name = "010_chars"
-path = "010_chars/main.rs"
+name = "10_ownership_move"
+path = "10_ownership_move/main.rs"
 
 [[bin]]
-name = "011_tuples"
-path = "011_tuples/main.rs"
+name = "11_clone_copy"
+path = "11_clone_copy/main.rs"
 
 [[bin]]
-name = "012_arrays"
-path = "012_arrays/main.rs"
+name = "12_borrowing"
+path = "12_borrowing/main.rs"
 
 [[bin]]
-name = "013_operators"
-path = "013_operators/main.rs"
+name = "13_slices"
+path = "13_slices/main.rs"
 
 [[bin]]
-name = "014_inference"
-path = "014_inference/main.rs"
+name = "14_structs"
+path = "14_structs/main.rs"
 
 [[bin]]
-name = "015_aliases"
-path = "015_aliases/main.rs"
+name = "15_methods"
+path = "15_methods/main.rs"
 
 [[bin]]
-name = "016_cast"
-path = "016_cast/main.rs"
+name = "16_enums"
+path = "16_enums/main.rs"
 
 [[bin]]
-name = "017_parse"
-path = "017_parse/main.rs"
+name = "17_option"
+path = "17_option/main.rs"
 
 [[bin]]
-name = "018_comments"
-path = "018_comments/main.rs"
+name = "18_result"
+path = "18_result/main.rs"
 
 [[bin]]
-name = "019_print"
-path = "019_print/main.rs"
+name = "19_errors_panic"
+path = "19_errors_panic/main.rs"
 
 [[bin]]
-name = "020_debug"
-path = "020_debug/main.rs"
+name = "20_conversions"
+path = "20_conversions/main.rs"
 
 [[bin]]
-name = "021_functions"
-path = "021_functions/main.rs"
+name = "21_display_default_derive"
+path = "21_display_default_derive/main.rs"
 
 [[bin]]
-name = "022_params"
-path = "022_params/main.rs"
+name = "22_eq_ord_hash"
+path = "22_eq_ord_hash/main.rs"
 
 [[bin]]
-name = "023_returns"
-path = "023_returns/main.rs"
+name = "23_drop_deref"
+path = "23_drop_deref/main.rs"
 
 [[bin]]
-name = "024_expressions"
-path = "024_expressions/main.rs"
+name = "24_asref_borrow_cow"
+path = "24_asref_borrow_cow/main.rs"
 
 [[bin]]
-name = "025_diverging"
-path = "025_diverging/main.rs"
+name = "25_generics"
+path = "25_generics/main.rs"
 
 [[bin]]
-name = "026_blocks"
-path = "026_blocks/main.rs"
+name = "26_traits"
+path = "26_traits/main.rs"
 
 [[bin]]
-name = "027_if_else"
-path = "027_if_else/main.rs"
+name = "27_impl_vs_dyn"
+path = "27_impl_vs_dyn/main.rs"
 
 [[bin]]
-name = "028_loop"
-path = "028_loop/main.rs"
+name = "28_newtype_extension"
+path = "28_newtype_extension/main.rs"
 
 [[bin]]
-name = "029_while"
-path = "029_while/main.rs"
+name = "29_operator_overloading"
+path = "29_operator_overloading/main.rs"
 
 [[bin]]
-name = "030_while_let"
-path = "030_while_let/main.rs"
+name = "30_iterators"
+path = "30_iterators/main.rs"
 
 [[bin]]
-name = "031_for"
-path = "031_for/main.rs"
+name = "31_iterator_adapters"
+path = "31_iterator_adapters/main.rs"
 
 [[bin]]
-name = "032_range"
-path = "032_range/main.rs"
+name = "32_iterator_sources"
+path = "32_iterator_sources/main.rs"
 
 [[bin]]
-name = "033_labels"
-path = "033_labels/main.rs"
+name = "33_closures"
+path = "33_closures/main.rs"
 
 [[bin]]
-name = "034_match"
-path = "034_match/main.rs"
+name = "34_lifetimes"
+path = "34_lifetimes/main.rs"
 
 [[bin]]
-name = "035_guards"
-path = "035_guards/main.rs"
+name = "35_lifetime_bounds_static"
+path = "35_lifetime_bounds_static/main.rs"
 
 [[bin]]
-name = "036_bindings"
-path = "036_bindings/main.rs"
+name = "36_vec"
+path = "36_vec/main.rs"
 
 [[bin]]
-name = "037_if_let"
-path = "037_if_let/main.rs"
+name = "37_maps"
+path = "37_maps/main.rs"
 
 [[bin]]
-name = "038_let_else"
-path = "038_let_else/main.rs"
+name = "38_sets"
+path = "38_sets/main.rs"
 
 [[bin]]
-name = "039_ownership"
-path = "039_ownership/main.rs"
+name = "39_queues"
+path = "39_queues/main.rs"
 
 [[bin]]
-name = "040_move"
-path = "040_move/main.rs"
+name = "40_box_rc_weak"
+path = "40_box_rc_weak/main.rs"
 
 [[bin]]
-name = "041_clone"
-path = "041_clone/main.rs"
+name = "41_cell_refcell"
+path = "41_cell_refcell/main.rs"
 
 [[bin]]
-name = "042_copy"
-path = "042_copy/main.rs"
+name = "42_once_lazy"
+path = "42_once_lazy/main.rs"
 
 [[bin]]
-name = "043_partial_move"
-path = "043_partial_move/main.rs"
+name = "43_threads"
+path = "43_threads/main.rs"
 
 [[bin]]
-name = "044_refs"
-path = "044_refs/main.rs"
+name = "44_shared_state"
+path = "44_shared_state/main.rs"
 
 [[bin]]
-name = "045_mut_refs"
-path = "045_mut_refs/main.rs"
+name = "45_channels"
+path = "45_channels/main.rs"
 
 [[bin]]
-name = "046_borrow"
-path = "046_borrow/main.rs"
+name = "46_sync_primitives"
+path = "46_sync_primitives/main.rs"
 
 [[bin]]
-name = "047_slices"
-path = "047_slices/main.rs"
+name = "47_read_write_seek"
+path = "47_read_write_seek/main.rs"
 
 [[bin]]
-name = "048_str_slices"
-path = "048_str_slices/main.rs"
+name = "48_fs_paths"
+path = "48_fs_paths/main.rs"
 
 [[bin]]
-name = "049_dangling"
-path = "049_dangling/main.rs"
+name = "49_process_env"
+path = "49_process_env/main.rs"
 
 [[bin]]
-name = "050_structs"
-path = "050_structs/main.rs"
+name = "50_time"
+path = "50_time/main.rs"
 
 [[bin]]
-name = "051_update"
-path = "051_update/main.rs"
+name = "51_strings"
+path = "51_strings/main.rs"
 
 [[bin]]
-name = "052_tuple_structs"
-path = "052_tuple_structs/main.rs"
+name = "52_mem"
+path = "52_mem/main.rs"
 
 [[bin]]
-name = "053_unit_structs"
-path = "053_unit_structs/main.rs"
+name = "53_modules"
+path = "53_modules/main.rs"
 
 [[bin]]
-name = "054_methods"
-path = "054_methods/main.rs"
+name = "54_tests_docs"
+path = "54_tests_docs/main.rs"
 
 [[bin]]
-name = "055_associated"
-path = "055_associated/main.rs"
+name = "55_macros"
+path = "55_macros/main.rs"
 
 [[bin]]
-name = "056_enums"
-path = "056_enums/main.rs"
+name = "56_const"
+path = "56_const/main.rs"
 
 [[bin]]
-name = "057_enum_methods"
-path = "057_enum_methods/main.rs"
+name = "57_type_level"
+path = "57_type_level/main.rs"
 
 [[bin]]
-name = "058_option"
-path = "058_option/main.rs"
+name = "58_async"
+path = "58_async/main.rs"
 
 [[bin]]
-name = "059_result"
-path = "059_result/main.rs"
+name = "59_unsafe"
+path = "59_unsafe/main.rs"
 
 [[bin]]
-name = "060_combinators"
-path = "060_combinators/main.rs"
-
-[[bin]]
-name = "061_result_map"
-path = "061_result_map/main.rs"
-
-[[bin]]
-name = "062_question"
-path = "062_question/main.rs"
-
-[[bin]]
-name = "063_unwrap"
-path = "063_unwrap/main.rs"
-
-[[bin]]
-name = "064_errors"
-path = "064_errors/main.rs"
-
-[[bin]]
-name = "065_panic"
-path = "065_panic/main.rs"
-
-[[bin]]
-name = "066_from_into"
-path = "066_from_into/main.rs"
-
-[[bin]]
-name = "067_tryfrom"
-path = "067_tryfrom/main.rs"
-
-[[bin]]
-name = "068_fromstr"
-path = "068_fromstr/main.rs"
-
-[[bin]]
-name = "069_display"
-path = "069_display/main.rs"
-
-[[bin]]
-name = "070_default"
-path = "070_default/main.rs"
-
-[[bin]]
-name = "071_eq_ord"
-path = "071_eq_ord/main.rs"
-
-[[bin]]
-name = "072_hash"
-path = "072_hash/main.rs"
-
-[[bin]]
-name = "073_drop"
-path = "073_drop/main.rs"
-
-[[bin]]
-name = "074_deref"
-path = "074_deref/main.rs"
-
-[[bin]]
-name = "075_asref"
-path = "075_asref/main.rs"
-
-[[bin]]
-name = "076_borrow_trait"
-path = "076_borrow_trait/main.rs"
-
-[[bin]]
-name = "077_cow"
-path = "077_cow/main.rs"
-
-[[bin]]
-name = "078_generics"
-path = "078_generics/main.rs"
-
-[[bin]]
-name = "079_generic_structs"
-path = "079_generic_structs/main.rs"
-
-[[bin]]
-name = "080_generic_enums"
-path = "080_generic_enums/main.rs"
-
-[[bin]]
-name = "081_bounds"
-path = "081_bounds/main.rs"
-
-[[bin]]
-name = "082_impl_trait"
-path = "082_impl_trait/main.rs"
-
-[[bin]]
-name = "083_dyn_trait"
-path = "083_dyn_trait/main.rs"
-
-[[bin]]
-name = "084_traits"
-path = "084_traits/main.rs"
-
-[[bin]]
-name = "085_default_methods"
-path = "085_default_methods/main.rs"
-
-[[bin]]
-name = "086_derive"
-path = "086_derive/main.rs"
-
-[[bin]]
-name = "087_supertraits"
-path = "087_supertraits/main.rs"
-
-[[bin]]
-name = "088_associated_types"
-path = "088_associated_types/main.rs"
-
-[[bin]]
-name = "089_newtype"
-path = "089_newtype/main.rs"
-
-[[bin]]
-name = "090_extension"
-path = "090_extension/main.rs"
-
-[[bin]]
-name = "091_iterators"
-path = "091_iterators/main.rs"
-
-[[bin]]
-name = "092_into_iter"
-path = "092_into_iter/main.rs"
-
-[[bin]]
-name = "093_adapters"
-path = "093_adapters/main.rs"
-
-[[bin]]
-name = "094_collect"
-path = "094_collect/main.rs"
-
-[[bin]]
-name = "095_fold"
-path = "095_fold/main.rs"
-
-[[bin]]
-name = "096_closures"
-path = "096_closures/main.rs"
-
-[[bin]]
-name = "097_capture"
-path = "097_capture/main.rs"
-
-[[bin]]
-name = "098_fn_traits"
-path = "098_fn_traits/main.rs"
-
-[[bin]]
-name = "099_lifetimes"
-path = "099_lifetimes/main.rs"
-
-[[bin]]
-name = "100_lifetime_structs"
-path = "100_lifetime_structs/main.rs"
-
-[[bin]]
-name = "101_elision"
-path = "101_elision/main.rs"
-
-[[bin]]
-name = "102_static"
-path = "102_static/main.rs"
-
-[[bin]]
-name = "103_lifetime_bounds"
-path = "103_lifetime_bounds/main.rs"
-
-[[bin]]
-name = "104_vec"
-path = "104_vec/main.rs"
-
-[[bin]]
-name = "105_vec_extra"
-path = "105_vec_extra/main.rs"
-
-[[bin]]
-name = "106_hashmap"
-path = "106_hashmap/main.rs"
-
-[[bin]]
-name = "107_entry"
-path = "107_entry/main.rs"
-
-[[bin]]
-name = "108_hashset"
-path = "108_hashset/main.rs"
-
-[[bin]]
-name = "109_btreemap"
-path = "109_btreemap/main.rs"
-
-[[bin]]
-name = "110_btreeset"
-path = "110_btreeset/main.rs"
-
-[[bin]]
-name = "111_vecdeque"
-path = "111_vecdeque/main.rs"
-
-[[bin]]
-name = "112_binaryheap"
-path = "112_binaryheap/main.rs"
-
-[[bin]]
-name = "113_linkedlist"
-path = "113_linkedlist/main.rs"
-
-[[bin]]
-name = "114_sort"
-path = "114_sort/main.rs"
-
-[[bin]]
-name = "115_binary_search"
-path = "115_binary_search/main.rs"
-
-[[bin]]
-name = "116_box_ptr"
-path = "116_box_ptr/main.rs"
-
-[[bin]]
-name = "117_rc"
-path = "117_rc/main.rs"
-
-[[bin]]
-name = "118_weak"
-path = "118_weak/main.rs"
-
-[[bin]]
-name = "119_cell"
-path = "119_cell/main.rs"
-
-[[bin]]
-name = "120_refcell"
-path = "120_refcell/main.rs"
-
-[[bin]]
-name = "121_interior"
-path = "121_interior/main.rs"
-
-[[bin]]
-name = "122_arc"
-path = "122_arc/main.rs"
-
-[[bin]]
-name = "123_mutex"
-path = "123_mutex/main.rs"
-
-[[bin]]
-name = "124_rwlock"
-path = "124_rwlock/main.rs"
-
-[[bin]]
-name = "125_once_lock"
-path = "125_once_lock/main.rs"
-
-[[bin]]
-name = "126_threads"
-path = "126_threads/main.rs"
-
-[[bin]]
-name = "127_move_thread"
-path = "127_move_thread/main.rs"
-
-[[bin]]
-name = "128_builder"
-path = "128_builder/main.rs"
-
-[[bin]]
-name = "129_mpsc"
-path = "129_mpsc/main.rs"
-
-[[bin]]
-name = "130_multi_tx"
-path = "130_multi_tx/main.rs"
-
-[[bin]]
-name = "131_sync_channel"
-path = "131_sync_channel/main.rs"
-
-[[bin]]
-name = "132_try_recv"
-path = "132_try_recv/main.rs"
-
-[[bin]]
-name = "133_scoped"
-path = "133_scoped/main.rs"
-
-[[bin]]
-name = "134_atomics"
-path = "134_atomics/main.rs"
-
-[[bin]]
-name = "135_send_sync"
-path = "135_send_sync/main.rs"
-
-[[bin]]
-name = "136_files"
-path = "136_files/main.rs"
-
-[[bin]]
-name = "137_bufreader"
-path = "137_bufreader/main.rs"
-
-[[bin]]
-name = "138_path"
-path = "138_path/main.rs"
-
-[[bin]]
-name = "139_env"
-path = "139_env/main.rs"
-
-[[bin]]
-name = "140_args"
-path = "140_args/main.rs"
-
-[[bin]]
-name = "141_command"
-path = "141_command/main.rs"
-
-[[bin]]
-name = "142_stdin"
-path = "142_stdin/main.rs"
-
-[[bin]]
-name = "143_include"
-path = "143_include/main.rs"
-
-[[bin]]
-name = "144_duration"
-path = "144_duration/main.rs"
-
-[[bin]]
-name = "145_instant"
-path = "145_instant/main.rs"
-
-[[bin]]
-name = "146_systemtime"
-path = "146_systemtime/main.rs"
-
-[[bin]]
-name = "147_sleep"
-path = "147_sleep/main.rs"
-
-[[bin]]
-name = "148_strings"
-path = "148_strings/main.rs"
-
-[[bin]]
-name = "149_osstr"
-path = "149_osstr/main.rs"
-
-[[bin]]
-name = "150_mem"
-path = "150_mem/main.rs"
-
-[[bin]]
-name = "151_mem_take"
-path = "151_mem_take/main.rs"
-
-[[bin]]
-name = "152_fmt_extras"
-path = "152_fmt_extras/main.rs"
-
-[[bin]]
-name = "153_modules"
-path = "153_modules/main.rs"
-
-[[bin]]
-name = "154_use_paths"
-path = "154_use_paths/main.rs"
-
-[[bin]]
-name = "155_visibility"
-path = "155_visibility/main.rs"
-
-[[bin]]
-name = "156_cfg"
-path = "156_cfg/main.rs"
-
-[[bin]]
-name = "157_tests"
-path = "157_tests/main.rs"
-
-[[bin]]
-name = "158_doc_comments"
-path = "158_doc_comments/main.rs"
-
-[[bin]]
-name = "159_macros"
-path = "159_macros/main.rs"
-
-[[bin]]
-name = "160_macro_repeat"
-path = "160_macro_repeat/main.rs"
-
-[[bin]]
-name = "161_todo"
-path = "161_todo/main.rs"
-
-[[bin]]
-name = "162_assert"
-path = "162_assert/main.rs"
-
-[[bin]]
-name = "163_const_fn"
-path = "163_const_fn/main.rs"
-
-[[bin]]
-name = "164_const_generics"
-path = "164_const_generics/main.rs"
-
-[[bin]]
-name = "165_static_vs_const"
-path = "165_static_vs_const/main.rs"
-
-[[bin]]
-name = "166_matches"
-path = "166_matches/main.rs"
-
-[[bin]]
-name = "167_slice_patterns"
-path = "167_slice_patterns/main.rs"
-
-[[bin]]
-name = "168_or_patterns"
-path = "168_or_patterns/main.rs"
-
-[[bin]]
-name = "169_range_patterns"
-path = "169_range_patterns/main.rs"
-
-[[bin]]
-name = "170_ref_patterns"
-path = "170_ref_patterns/main.rs"
-
-[[bin]]
-name = "171_phantom"
-path = "171_phantom/main.rs"
-
-[[bin]]
-name = "172_sized"
-path = "172_sized/main.rs"
-
-[[bin]]
-name = "173_ops"
-path = "173_ops/main.rs"
-
-[[bin]]
-name = "174_index"
-path = "174_index/main.rs"
-
-[[bin]]
-name = "175_from_fn"
-path = "175_from_fn/main.rs"
-
-[[bin]]
-name = "176_once_repeat"
-path = "176_once_repeat/main.rs"
-
-[[bin]]
-name = "177_peekable"
-path = "177_peekable/main.rs"
-
-[[bin]]
-name = "178_cycle_zip"
-path = "178_cycle_zip/main.rs"
-
-[[bin]]
-name = "179_inspect"
-path = "179_inspect/main.rs"
-
-[[bin]]
-name = "180_fs_dir"
-path = "180_fs_dir/main.rs"
-
-[[bin]]
-name = "181_metadata"
-path = "181_metadata/main.rs"
-
-[[bin]]
-name = "182_cursor"
-path = "182_cursor/main.rs"
-
-[[bin]]
-name = "183_error_chain"
-path = "183_error_chain/main.rs"
-
-[[bin]]
-name = "184_any"
-path = "184_any/main.rs"
-
-[[bin]]
-name = "185_type_name"
-path = "185_type_name/main.rs"
-
-[[bin]]
-name = "186_async_intro"
-path = "186_async_intro/main.rs"
-
-[[bin]]
-name = "187_future_trait"
-path = "187_future_trait/main.rs"
-
-[[bin]]
-name = "188_pin_intro"
-path = "188_pin_intro/main.rs"
-
-[[bin]]
-name = "189_unsafe_intro"
-path = "189_unsafe_intro/main.rs"
-
-[[bin]]
-name = "190_raw_pointers"
-path = "190_raw_pointers/main.rs"
-
-[[bin]]
-name = "191_extern"
-path = "191_extern/main.rs"
-
-[[bin]]
-name = "192_repr"
-path = "192_repr/main.rs"
-
-[[bin]]
-name = "193_maybe_uninit"
-path = "193_maybe_uninit/main.rs"
-
-[[bin]]
-name = "194_manuallydrop"
-path = "194_manuallydrop/main.rs"
-
-[[bin]]
-name = "195_nonzero"
-path = "195_nonzero/main.rs"
-
-[[bin]]
-name = "196_wrapping"
-path = "196_wrapping/main.rs"
-
-[[bin]]
-name = "197_cell_once"
-path = "197_cell_once/main.rs"
-
-[[bin]]
-name = "198_lazy_lock"
-path = "198_lazy_lock/main.rs"
-
-[[bin]]
-name = "199_condvar"
-path = "199_condvar/main.rs"
-
-[[bin]]
-name = "200_barrier"
-path = "200_barrier/main.rs"
-
-[[bin]]
-name = "201_thread_local"
-path = "201_thread_local/main.rs"
-
-[[bin]]
-name = "202_parking"
-path = "202_parking/main.rs"
-
-[[bin]]
-name = "203_process_exit"
-path = "203_process_exit/main.rs"
-
-[[bin]]
-name = "204_env_current"
-path = "204_env_current/main.rs"
-
-[[bin]]
-name = "205_read_write_trait"
-path = "205_read_write_trait/main.rs"
-
-[[bin]]
-name = "206_seek"
-path = "206_seek/main.rs"
-
-[[bin]]
-name = "207_bytes_str"
-path = "207_bytes_str/main.rs"
-
-[[bin]]
-name = "208_cow_str"
-path = "208_cow_str/main.rs"
-
-[[bin]]
-name = "209_iter_collect_map"
-path = "209_iter_collect_map/main.rs"
-
-[[bin]]
-name = "210_workspace_note"
-path = "210_workspace_note/main.rs"
+name = "60_ffi_repr"
+path = "60_ffi_repr/main.rs"

@@ -7,30 +7,17 @@
 
 ## What's inside
 
-Buzzard is a learning playground: 210 small, numbered Rust lessons. Each one lives in its
-own folder with a commented `main.rs`, and runs on its own:
+Buzzard is a learning playground: 60 numbered Rust lessons, one topic each. Every lesson
+lives in its own folder with a `main.rs` that opens with an explanation of the topic, then
+works through it in a series of small `demo_*` functions, each printing a `-- section --`
+header so the output is easy to follow. Code the compiler rejects is shown commented out,
+with the real error it produces. Each lesson runs on its own:
 
 ```zsh
-$ cargo run --bin 001_hello
+$ cargo run --bin 01_print_format
+$ cargo check --bin 01_print_format   # type-check only, faster
+$ cargo test --bin 54_tests_docs      # lessons with tests
 ```
-
-Topics, in order:
-
-- Basics: variables, mutability, constants, shadowing, scalar and compound types
-- Functions, expressions and control flow (`if`, `loop`, `while`, `for`, `match`, `let else`)
-- Ownership, moves, `Clone`/`Copy`, borrowing, slices
-- Structs, enums, `Option`, `Result` and error handling
-- Conversion and core traits (`From`, `TryFrom`, `Display`, `Eq`/`Ord`, `Hash`, `Drop`, `Deref`, `Cow`)
-- Generics, traits, `impl Trait` and `dyn Trait`
-- Iterators, closures and lifetimes
-- Collections: `Vec`, `HashMap`, `BTreeMap`, `VecDeque`, `BinaryHeap` and more
-- Smart pointers and interior mutability: `Box`, `Rc`, `Weak`, `Cell`, `RefCell`, `Arc`
-- Concurrency: threads, `Mutex`, `RwLock`, channels, atomics, `Condvar`, `Barrier`
-- Files, paths, env, args, processes, stdin, time
-- Modules, visibility, `cfg`, tests, doc comments and macros
-- Advanced patterns, const generics, `PhantomData`, operator overloading
-- Async, `Pin`, unsafe, raw pointers, FFI and `repr`
-
 
 ## References
 
