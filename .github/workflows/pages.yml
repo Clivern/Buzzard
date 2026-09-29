@@ -1,0 +1,55 @@
+name: Pages
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# One deploy at a time; a newer push replaces a queued one.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build the lessons site
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v7
+
+    - name: Install the pinned Rust toolchain
+      run: rustup toolchain install
+
+    - name: Cache Cargo
+      uses: Swatinem/rust-cache@v2
+
+    - name: Build the site
+      run: python3 site/build.py
+
+    - name: Configure Pages
+      uses: actions/configure-pages@v5
+
+    - name: Upload the site
+      uses: actions/upload-pages-artifact@v4
+      with:
+        path: docs/
+
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+    - name: Deploy
+      id: deployment
+      uses: actions/deploy-pages@v4

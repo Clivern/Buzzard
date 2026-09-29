@@ -6,3 +6,6 @@ target
 *.swp
 .gen/
 *.orig
+
+# Built by site/build.py and deployed by the Pages workflow
+docs/

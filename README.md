@@ -19,6 +19,18 @@ $ cargo check --bin 01_print_format   # type-check only, faster
 $ cargo test --bin 54_tests_docs      # lessons with tests
 ```
 
+## Website
+
+The lessons are also published as a website on GitHub Pages. Each page shows the
+lesson's explanation, every example with the output it prints, and the full program
+with a button to run it on the Rust Playground. The Pages workflow rebuilds and deploys
+it on every push to `main`. To preview it locally:
+
+```zsh
+$ python3 site/build.py            # runs every lesson and writes docs/
+$ python3 -m http.server -d docs   # preview at http://localhost:8000
+```
+
 ## References
 
 - [The Rust Programming Language](https://doc.rust-lang.org/book/)
