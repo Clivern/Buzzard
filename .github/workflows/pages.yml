@@ -31,7 +31,7 @@ jobs:
       uses: Swatinem/rust-cache@v2
 
     - name: Build the site
-      run: python3 site/build.py
+      run: python3 site/build.py --require-cargo
 
     - name: Configure Pages
       uses: actions/configure-pages@v6

@@ -6,6 +6,8 @@ a section with its highlighted code and the output it printed, and the whole fil
 shown at the end with a Rust Playground button.
 
 Usage: python3 site/build.py            # builds the lessons, runs them, writes docs/
+       python3 site/build.py --no-run   # skips running, for quick layout work
+       python3 site/build.py --require-cargo  # fail if cargo is missing (CI)
        python3 -m http.server -d docs   # preview at http://localhost:8000
 """
 
@@ -246,6 +248,26 @@ def prose(lines):
 # Lesson parsing
 
 
+def short_title(slug, long_title):
+    """Short nav title from the lesson header"""
+    head = long_title.strip()
+    m = re.match(r"\d+\.\s*(.+)", head)
+    if m:
+        head = m.group(1).strip()
+    if head:
+        if "," in head:
+            short = head.split(",")[0].strip()
+        elif ":" in head:
+            short = head.split(":")[0].strip()
+        else:
+            short = head
+        if short and (len(short) >= 6 or " " in short):
+            return short[0].upper() + short[1:] if len(short) > 1 else short.upper()
+
+    name = slug[3:] if len(slug) > 3 and slug[:2].isdigit() and slug[2] == "_" else slug
+    return " ".join(part.capitalize() for part in name.split("_"))
+
+
 def parse(folder):
     text = (folder / "main.rs").read_text()
     lines = text.splitlines()
@@ -298,6 +320,7 @@ def parse(folder):
         "slug": folder.name,
         "num": int(num),
         "title": title,
+        "short_title": short_title(folder.name, title),
         "intro": prose(body),
         "commands": commands,
         "examples": examples,
@@ -311,6 +334,26 @@ def parse(folder):
 # Running lessons for their output
 
 
+def find_tool(name):
+    """Resolve a Rust/Go-style tool on PATH or under ~/.cargo/bin."""
+    path = shutil.which(name)
+    if path:
+        return path
+
+    candidate = Path.home() / ".cargo" / "bin" / name
+    if candidate.is_file():
+        return str(candidate)
+
+    return None
+
+
+def clear_outputs(lessons):
+    for lesson in lessons:
+        lesson["stdout"] = ""
+        for ex in lesson["examples"]:
+            ex["output"] = None
+
+
 def scrub(text):
     text = text.replace(str(ROOT), ".")
     text = text.replace(str(Path.home()), "~")
@@ -318,9 +361,9 @@ def scrub(text):
     return text.replace(tempfile.gettempdir().rstrip("/"), "/tmp")
 
 
-def run_outputs(lessons):
+def run_outputs(lessons, cargo):
     print("building lessons...", file=sys.stderr)
-    subprocess.run(["cargo", "build", "--bins", "-q"], cwd=ROOT, check=True)
+    subprocess.run([cargo, "build", "--bins", "-q"], cwd=ROOT, check=True)
 
     for lesson in lessons:
         exe = ROOT / "target" / "debug" / lesson["slug"]
@@ -338,6 +381,8 @@ def run_outputs(lessons):
         except subprocess.TimeoutExpired:
             print(f"  {lesson['slug']}: timed out", file=sys.stderr)
             stdout = ""
+
+        lesson["stdout"] = stdout.rstrip()
 
         sections = {}
         current = None
@@ -438,14 +483,42 @@ def page(title, body, base, description):
 """
 
 
+def copy_button(text=None):
+    attr = f'data-copy-text="{html.escape(text)}"' if text is not None else "data-copy"
+    return f'<button class="icon-btn" type="button" {attr} title="Copy">{ICON_COPY}</button>'
+
+
 def code_block(code, extra_buttons=""):
     return (
         '<div class="code">'
-        f'<div class="code-actions">{extra_buttons}'
-        f'<button class="icon-btn" type="button" data-copy title="Copy">{ICON_COPY}</button>'
-        "</div>"
+        f'<div class="code-actions">{extra_buttons}{copy_button()}</div>'
         f"<pre><code>{highlight(code)}</code></pre></div>"
     )
+
+
+def segment_table(segments, source, extra_buttons=""):
+    rows = []
+    for i, (doc, code) in enumerate(segments):
+        actions = ""
+        if i == 0:
+            actions = f'<div class="code-actions">{extra_buttons}{copy_button(source)}</div>'
+
+        code_html = f"<pre><code>{highlight(code)}</code></pre>" if code else ""
+        empty = "" if code else " empty"
+        rows.append(
+            f'<div class="seg"><div class="seg-doc prose">{doc}</div>'
+            f'<div class="seg-code code{empty}">{actions}{code_html}</div></div>'
+        )
+
+    return f'<div class="segs">{"".join(rows)}</div>'
+
+
+def shell_block(cmd, output):
+    parts = [f'<span class="prompt">$</span> <span class="cmd">{html.escape(cmd)}</span>']
+    if output:
+        parts.append(html.escape(output))
+
+    return '<div class="shell"><pre>' + "\n".join(parts) + "</pre></div>"
 
 
 def sidebar(lessons, active, base):
@@ -461,7 +534,7 @@ def sidebar(lessons, active, base):
                 links.append(
                     f'<a class="{cls}" href="{base}{l["slug"]}/">'
                     f'<span class="side-num">{l["num"]:02}</span>'
-                    f'<span>{html.escape(l["title"])}</span></a>'
+                    f'<span>{html.escape(l["short_title"])}</span></a>'
                 )
 
         out.append(
@@ -481,52 +554,45 @@ def part_of(num):
 def lesson_page(lesson, prev, nxt, lessons):
     base = "../"
     slug = lesson["slug"]
-    commands = "".join(
-        f'<div class="run-cmd"><span class="prompt">$</span><code>{html.escape(c)}</code>'
-        f'<button class="icon-btn" type="button" data-copy-text="{html.escape(c)}" '
-        f'title="Copy">{ICON_COPY}</button></div>'
-        for c in lesson["commands"]
-    )
+    display = lesson["short_title"]
 
-    sections = []
-    toc = ['<a href="#overview">Overview</a>']
-    for ex in lesson["examples"]:
-        anchor = f"example-{ex['n']}"
-        toc.append(f'<a href="#{anchor}">{html.escape(ex["label"])}</a>')
-        output = ""
-        if ex.get("output"):
-            output = (
-                '<div class="output"><div class="output-label">Output</div>'
-                f"<pre>{html.escape(ex['output'])}</pre></div>"
-            )
-
-        sections.append(
-            f'<section class="section" id="{anchor}">'
-            f'<h2><a class="anchor" href="#{anchor}">#</a>'
-            f'<span class="ex-num">{ex["n"]}</span>{html.escape(ex["label"])}</h2>'
-            f"{code_block(ex['code'])}{output}</section>"
-        )
+    segments = [
+        (f"<p>{inline(ex['label'])}</p>", ex["code"]) for ex in lesson["examples"]
+    ]
 
     play = ""
-    if slug not in NO_PLAYGROUND:
+    if slug not in NO_PLAYGROUND and not lesson["extras"]:
         play = (
+            '<button class="icon-btn" type="button" data-play title="Copy and open the Rust Playground">'
+            f"{ICON_PLAY}</button>"
+        )
+
+    body_parts = [segment_table(segments, lesson["source"], play)]
+    if lesson["commands"] and lesson.get("stdout"):
+        body_parts.append(shell_block(lesson["commands"][0], lesson["stdout"]))
+
+    for name, src in lesson["extras"]:
+        body_parts.append(f'<h3 class="file-name">{html.escape(slug + "/" + name)}</h3>')
+        body_parts.append(
+            '<div class="segs"><div class="seg"><div class="seg-doc"></div>'
+            f'<div class="seg-code code"><div class="code-actions">{copy_button(src)}</div>'
+            f'<pre><code>{highlight(src)}</code></pre></div></div></div>'
+        )
+
+    full_play = ""
+    if slug not in NO_PLAYGROUND:
+        full_play = (
             '<button class="btn-secondary btn-sm" type="button" data-play>'
             f"{ICON_PLAY}Run in Playground</button>"
         )
 
-    extras = "".join(
-        f'<h3 class="file-name">{html.escape(name)}</h3>{code_block(src)}'
-        for name, src in lesson["extras"]
-    )
-    toc.append('<a href="#full-program">Full program</a>')
-    sections.append(
-        '<section class="section" id="full-program">'
-        '<details data-full><summary><h2><span class="chev"></span>Full program</h2>'
+    body_parts.append(
+        '<details class="section" data-full><summary><h2><span class="chev"></span>Full program</h2>'
         f'<span class="file-meta">{slug}/main.rs · {lesson["source"].count(chr(10)) + 1} lines</span>'
         "</summary>"
-        f'<div class="full-actions">{play}'
+        f'<div class="full-actions">{full_play}'
         f'<a class="btn-secondary btn-sm" href="{REPO}/blob/main/{slug}/main.rs">{ICON_GITHUB}View on GitHub</a></div>'
-        f'<div data-source>{code_block(lesson["source"])}</div>{extras}</details></section>'
+        f'<div data-source>{code_block(lesson["source"])}</div></details>'
     )
 
     pager = ['<nav class="pager">']
@@ -534,7 +600,7 @@ def lesson_page(lesson, prev, nxt, lessons):
         pager.append(
             f'<a class="pager-card" href="{base}{prev["slug"]}/" data-prev>'
             f'<span class="pager-dir">← Previous</span>'
-            f'<span class="pager-title">{prev["num"]:02}. {html.escape(prev["title"])}</span></a>'
+            f'<span class="pager-title">{prev["num"]:02}. {html.escape(prev["short_title"])}</span></a>'
         )
     else:
         pager.append("<span></span>")
@@ -543,36 +609,34 @@ def lesson_page(lesson, prev, nxt, lessons):
         pager.append(
             f'<a class="pager-card next" href="{base}{nxt["slug"]}/" data-next>'
             f'<span class="pager-dir">Next →</span>'
-            f'<span class="pager-title">{nxt["num"]:02}. {html.escape(nxt["title"])}</span></a>'
+            f'<span class="pager-title">{nxt["num"]:02}. {html.escape(nxt["short_title"])}</span></a>'
         )
 
     pager.append("</nav>")
 
-    stats = f'{len(lesson["examples"])} examples'
-    if lesson["errors"]:
-        plural = "s" if lesson["errors"] > 1 else ""
-        stats += f' · {lesson["errors"]} compiler error{plural}'
+    run_hint = ""
+    if lesson["commands"]:
+        run_hint = f'<code>{html.escape(lesson["commands"][0])}</code>'
 
     body = f"""<div class="layout">
 {sidebar(lessons, slug, base)}
-<div class="content">
-<main class="main">
+<div class="content wide">
+<main class="main example">
   <div class="page-header">
     <div class="eyebrow">{html.escape(part_of(lesson["num"]))} · Lesson {lesson["num"]:02}</div>
-    <h1 class="page-title">{html.escape(lesson["title"])}</h1>
-    <div class="page-subtitle">{stats}</div>
-    <div class="commands">{commands}</div>
+    <h1 class="page-title">{html.escape(display)}</h1>
+    <div class="page-subtitle">{run_hint}</div>
   </div>
-  <section class="section prose" id="overview">{lesson["intro"]}</section>
-  {"".join(sections)}
+  <section class="intro prose">{lesson["intro"]}</section>
+  {"".join(body_parts)}
+  <div class="source-link"><a class="btn-secondary btn-sm" href="{REPO}/tree/main/{slug}">{ICON_GITHUB}View on GitHub</a></div>
   {"".join(pager)}
 </main>
-<aside class="toc"><div class="toc-title">On this page</div>{"".join(toc)}</aside>
 </div>
 </div>"""
 
-    title = f"{lesson['num']:02}. {lesson['title']} · Buzzard"
-    return page(title, body, base, f"Buzzard lesson {lesson['num']}: {lesson['title']}")
+    title = f"{display} · Buzzard"
+    return page(title, body, base, f"Buzzard: {display}, lesson {lesson['num']:02}")
 
 
 def index_page(lessons):
@@ -588,8 +652,7 @@ def index_page(lessons):
                 cards.append(
                     f'<a class="lesson-card" href="{l["slug"]}/">'
                     f'<span class="lesson-num">{l["num"]:02}</span>'
-                    f'<span class="lesson-title">{html.escape(l["title"])}</span>'
-                    f'<span class="lesson-meta">{len(l["examples"])} examples</span></a>'
+                    f'<span class="lesson-title">{html.escape(l["short_title"])}</span></a>'
                 )
 
         parts.append(
@@ -644,12 +707,27 @@ def main():
         if (f / "main.rs").is_file()
     ]
 
+    executed = False
     if "--no-run" in sys.argv:
-        for l in lessons:
-            for ex in l["examples"]:
-                ex["output"] = None
+        clear_outputs(lessons)
     else:
-        run_outputs(lessons)
+        cargo = find_tool("cargo")
+        if not cargo:
+            msg = (
+                "cargo not found on PATH (checked ~/.cargo/bin too).\n"
+                "Install Rust from https://rustup.rs, open a new shell, then re-run.\n"
+                "To build the site without running lessons: python3 site/build.py --no-run"
+            )
+            if "--require-cargo" in sys.argv:
+                print(msg, file=sys.stderr)
+                sys.exit(1)
+
+            print(msg, file=sys.stderr)
+            print("Continuing without program output.", file=sys.stderr)
+            clear_outputs(lessons)
+        else:
+            run_outputs(lessons, cargo)
+            executed = True
 
     OUT.mkdir(exist_ok=True)
     for old in OUT.glob("[0-9][0-9]_*"):
@@ -676,7 +754,7 @@ def main():
         f"{l['slug']} #{ex['n']}"
         for l in lessons
         for ex in l["examples"]
-        if ex["headers"] and ex.get("output") is None and "--no-run" not in sys.argv
+        if ex["headers"] and ex.get("output") is None and executed
     ]
     if missing:
         print("no output found for: " + ", ".join(missing), file=sys.stderr)

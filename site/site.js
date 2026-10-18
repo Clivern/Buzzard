@@ -55,13 +55,21 @@
   // Run the full program on play.rust-lang.org. Lessons are too long for a ?code= URL
   // (the playground rejects URLs over ~8 KB), so share it as a gist first, the same
   // way the playground's own Share button does, and open the short ?gist= link.
-  var play = document.querySelector("[data-play]");
   var PLAYGROUND = "https://play.rust-lang.org/";
   var gistUrl = null;
 
-  if (play) {
+  function playgroundCode(play) {
+    var actions = play.closest(".code-actions, .full-actions");
+    var copyBtn = actions && actions.querySelector("[data-copy-text]");
+    if (copyBtn) return copyBtn.dataset.copyText;
+
+    var source = document.querySelector("[data-source] pre");
+    return source ? source.textContent : "";
+  }
+
+  document.querySelectorAll("[data-play]").forEach(function (play) {
     play.addEventListener("click", function () {
-      var code = document.querySelector("[data-source] pre").textContent;
+      var code = playgroundCode(play);
 
       // Open the tab now: browsers block window.open after an await.
       var tab = window.open("about:blank", "_blank");
@@ -70,9 +78,9 @@
         return;
       }
 
-      var label = play.lastChild.textContent;
+      var label = play.lastChild && play.lastChild.textContent;
       play.disabled = true;
-      play.lastChild.textContent = "Opening…";
+      if (label) play.lastChild.textContent = "Opening…";
 
       fetch(PLAYGROUND + "meta/gist", {
         method: "POST",
@@ -96,10 +104,10 @@
         })
         .finally(function () {
           play.disabled = false;
-          play.lastChild.textContent = label;
+          if (label) play.lastChild.textContent = label;
         });
     });
-  }
+  });
 
   // Open the full program when its anchor is targeted.
   var full = document.querySelector("[data-full]");

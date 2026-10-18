@@ -1094,3 +1094,131 @@ details[open] .chev {
     display: flex;
   }
 }
+
+/* Go by Example layout: prose on the left, code on the right */
+
+.content.wide {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.main.example {
+  max-width: 1160px;
+}
+
+.page-subtitle code {
+  margin-right: 6px;
+  padding: 1px 6px;
+  border-radius: 4px;
+  background-color: var(--theme-hover);
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 12px;
+}
+
+.intro {
+  max-width: 760px;
+  margin-bottom: 28px;
+  font-size: 16px;
+}
+
+.segs {
+  margin-bottom: 20px;
+  border: 1px solid var(--theme-border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.seg {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+}
+
+.seg-doc {
+  padding: 10px 24px 10px 20px;
+  font-size: 14.5px;
+  background-color: var(--surface);
+}
+
+.seg-doc p {
+  margin: 0 0 8px;
+}
+
+.seg-code {
+  background-color: var(--code-bg);
+}
+
+.seg-code pre {
+  height: 100%;
+  padding: 10px 18px;
+  border: 0;
+  border-radius: 0;
+}
+
+.seg-code.empty {
+  min-height: 12px;
+}
+
+.seg:first-child .seg-code pre {
+  padding-top: 16px;
+}
+
+.seg:last-child .seg-code pre {
+  padding-bottom: 16px;
+}
+
+.seg-code .code-actions {
+  top: 10px;
+}
+
+.shell {
+  margin-bottom: 20px;
+}
+
+.shell pre {
+  margin: 0;
+  padding: 14px 18px;
+  overflow-x: auto;
+  border-radius: 10px;
+  background-color: var(--primary-800);
+  color: #E7E7E7;
+  font-size: 13px;
+  line-height: 1.6;
+  scrollbar-width: thin;
+}
+
+.theme-dark .shell pre {
+  border: 1px solid var(--theme-border);
+  background-color: var(--code-bg);
+  color: var(--code-text);
+}
+
+.shell .prompt {
+  color: var(--primary-400);
+  user-select: none;
+}
+
+.shell .cmd {
+  color: #FFFFFF;
+  font-weight: 500;
+}
+
+.theme-dark .shell .cmd {
+  color: var(--theme-text);
+}
+
+.source-link {
+  margin: 4px 0 8px;
+}
+
+@media (max-width: 900px) {
+  .seg {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .seg-doc:empty {
+    display: none;
+  }
+
+  .seg-doc {
+    padding: 12px 16px 6px;
+  }
+}
