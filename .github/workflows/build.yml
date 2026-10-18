@@ -2,24 +2,28 @@ name: Build
 
 on:
   push:
+    branches: [main]
   pull_request:
 
 jobs:
   build:
     runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false
       matrix:
         os: [ubuntu-latest]
         rust: [stable, nightly]
 
     steps:
-    - uses: hecrj/setup-rust-action@v1
-      with:
-        rust-version: ${{ matrix.rust }}
-    - uses: actions/checkout@master
+      - uses: actions/checkout@v4
 
-    - name: Run config
-      run: make config
+      - uses: dtolnay/rust-toolchain@master
+        with:
+          toolchain: ${{ matrix.rust }}
+          components: rustfmt
 
-    - name: Run ci
-      run: make ci
+      - name: Run ci
+        run: make ci
+
+      - name: Run project
+        run: make run

@@ -2,9 +2,8 @@
 name = "buzzard"
 version = "0.1.0"
 authors = ["Clivern <hello@clivern.com>"]
-edition = "2018"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+description = "A hands-on tour of Rust basics, written as runnable, self-checking code."
+edition = "2021"
 
 [dependencies]
 rand = "0.8"

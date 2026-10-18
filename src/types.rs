@@ -1,6 +1,0 @@
-#![allow(unused)]
-
-
-fn types() {
-
-}

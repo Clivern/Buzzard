@@ -10,7 +10,7 @@ help: Makefile
 	@echo
 
 
-## config: Install dependencies.
+## config: Install dependencies
 config:
 	$(RUSTUP) component add rustfmt
 
@@ -61,7 +61,7 @@ run:
 	$(CARGO) run
 
 
-## ci: Run all CI tests.
+## ci: Run all CI checks
 ci: build test fmt_check
 	@echo "\n>> ============= All quality checks passed ============= <<"
 
@@ -72,4 +72,4 @@ clean:
 	rm -rf target
 
 
-.PHONY: help
+.PHONY: help config build version release test fmt fmt_check run ci clean

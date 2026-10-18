@@ -5,8 +5,6 @@ use front_house::another_mod as another_mod_import;
 use front_house::another_mod::another_pub_fun as another_pub_fun_import;
 use std::collections::HashMap;
 
-extern crate rand;
-
 // A module named `my_mod`
 mod my_mod {
     // Items in modules default to private visibility.
@@ -125,12 +123,13 @@ $ rustup doc --cargo
     );
 }
 
+// An explicit `return` works too, but is usually reserved for early exits.
 fn sqrt(x: f64) -> f64 {
     return x.sqrt();
 }
 
 // Functions return the last statement value by default.
-fn mutiple_of_two(x: f64) -> f64 {
+fn multiple_of_two(x: f64) -> f64 {
     x * 2.0
 }
 
@@ -291,6 +290,7 @@ struct IpAddress {
     kind: IpType,
 }
 
+#[allow(dead_code)]
 enum IpAddr {
     V4(u8, u8, u8, u8),
     V6(String),
@@ -309,6 +309,7 @@ fn get_sign(cur: Currency) -> String {
     }
 }
 
+#[allow(dead_code)]
 enum SpreadsheetCell {
     Int(i32),
     Float(f64),
@@ -468,7 +469,7 @@ fn main() {
 
     println!("{}", sqrt(2.0));
     println!("{}", sqrt(2.1));
-    println!("{}", mutiple_of_two(2.1));
+    println!("{}", multiple_of_two(2.1));
 
     println!("Abs 2.0: {}", abs(2.0));
     println!("Abs -2.0: {}", abs(-2.0));
@@ -790,9 +791,9 @@ fn main() {
     let s_001 = "Hello".to_string();
     let s_002 = s_001;
     // Rust won't copy the value here too because it could be very expensive in terms of runtime performance if the data on the heap were large.
-    // also it won't alllow a reference to same value because when s_001 and s_002 go out of scope,
+    // also it won't allow a reference to same value because when s_001 and s_002 go out of scope,
     // they will both try to free the same memory. This is known as a double free error
-    //  Instead rust conside s_001 not valid anymore and doesn’t need to free anything when s_001 goes out of scope.
+    // Instead rust considers s_001 not valid anymore and doesn’t need to free anything when s_001 goes out of scope.
 
     //assert_eq!(s_001, "Hello"); // will throw error since value
     assert_eq!(s_002, "Hello");
@@ -907,10 +908,10 @@ fn main() {
     let _ip_addr_v4 = IpAddr::V4(127, 0, 0, 1);
     let _ip_addr_v6 = IpAddr::V6("::1".to_string());
 
-    let some_num_001 = Some(5); // -> will be of type Option<i8>
-    let some_str_001 = Some("Hello World"); // -> will be of type Option<str>
+    let some_num_001 = Some(5); // -> will be of type Option<i32>
+    let some_str_001 = Some("Hello World"); // -> will be of type Option<&str>
     let absent_001: Option<i32> = None;
-    let absent_002 = None; // will be of type Option<T>
+    let absent_002 = None; // Option<i32>, inferred from the comparison below
     assert_eq!(absent_002, absent_001);
 
     assert_eq!(some_num_001.unwrap(), 5);
@@ -940,9 +941,9 @@ fn main() {
 
     // if let is syntax sugar for a match that runs code when the value matches one pattern and then ignores all other values.
     if let Some(6) = six_001 {
-        assert_eq!(true, true);
+        println!("six_001 is Some(6)");
     } else {
-        assert_eq!(true, false);
+        unreachable!();
     }
 
     // Modules allow disambiguation between items that have the same name.
@@ -957,7 +958,7 @@ fn main() {
     // pub(crate) items can be called from anywhere in the same crate
     my_mod::public_function_in_crate();
 
-    // pub(in path) items can only be called from within the mode specified
+    // pub(in path) items can only be called from within the module specified
     // Error! function `public_function_in_my_mod` is private
     //my_mod::nested::public_function_in_my_mod();
     // TODO ^ Try uncommenting this line
@@ -1174,6 +1175,9 @@ fn main() {
 
     let res_0003 = longest_02("Hello".to_string(), "World ".to_string());
     assert_eq!("World ".to_string(), res_0003);
+
+    // Traits on primitive types
+    assert_eq!(5.show(), "four-byte signed 5");
 
     // Iterators
     let list_001 = vec![1, 2, 3, 4, 5];
