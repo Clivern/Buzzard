@@ -846,7 +846,27 @@ details[open] .chev {
 }
 
 .hero {
-  padding: 72px 0 40px;
+  position: relative;
+  margin: 32px 0 24px;
+  padding: 72px 56px 64px;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #1f1d18 url("hero.jpg") center 20% / cover no-repeat;
+  color: #FFFFFF;
+  isolation: isolate;
+}
+
+/* Keep the text side dark whatever part of the image the crop shows. */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(90deg, rgba(20, 19, 16, 0.85) 0%, rgba(20, 19, 16, 0.55) 45%, rgba(20, 19, 16, 0) 80%);
+}
+
+.hero .eyebrow {
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .hero-title {
@@ -866,11 +886,35 @@ details[open] .chev {
   color: var(--theme-textLight);
 }
 
+.hero .hero-sub {
+  color: rgba(255, 255, 255, 0.78);
+}
+
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   margin-top: 28px;
+}
+
+.hero .btn-primary {
+  background-color: #FFFFFF;
+  color: #0B0B0B;
+}
+
+.hero .btn-primary:hover {
+  background-color: #E7E7E7;
+}
+
+.hero .btn-secondary {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #FFFFFF;
+  backdrop-filter: blur(6px);
+}
+
+.hero .btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.16);
 }
 
 .stats {
@@ -1038,7 +1082,13 @@ details[open] .chev {
   }
 
   .hero {
-    padding: 44px 0 28px;
+    margin-top: 20px;
+    padding: 40px 24px 36px;
+    border-radius: 12px;
+  }
+
+  .hero::before {
+    background: rgba(20, 19, 16, 0.6);
   }
 
   .hero-title {

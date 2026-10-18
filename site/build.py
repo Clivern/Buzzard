@@ -737,6 +737,7 @@ def main():
     (OUT / "assets").mkdir()
     shutil.copy(SITE / "style.css", OUT / "assets" / "style.css")
     shutil.copy(SITE / "site.js", OUT / "assets" / "site.js")
+    shutil.copy(SITE / "hero.jpg", OUT / "assets" / "hero.jpg")
     (OUT / ".nojekyll").write_text("")
 
     for i, lesson in enumerate(lessons):
